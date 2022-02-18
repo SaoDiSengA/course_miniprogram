@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgs_name:[],
     hw_id:'',
     imgs: [],
     date: '',
@@ -42,15 +43,15 @@ Page({
       })
     }else{
       wx.request({
-        url: 'http://localhost:8080/', //仅为示例，并非真实的接口地址
-        method: 'get',
+        url: 'http://localhost:8080/homework_new/homework_new', //仅为示例，并非真实的接口地址
+        method: 'post',
         data: {
           courseId:this.data.courseId,
           classId:this.data.classId,
-          id:this.data.hw_id,
-          release_hw_time:this.data.date,
+          teacherName:this.data.teacherName,
+
           content:this.data.content,
-          // imgs:this.data.imgs
+          imgs:this.data.imgs_name
         },
         header: {
           'content-type': 'application/json' // 默认值
@@ -68,6 +69,7 @@ Page({
           }
         })
       }
+      
       
       let pages = getCurrentPages();
       let prevPage = pages[pages.length-2];
@@ -144,92 +146,112 @@ Page({
     changeDateTime1(e) {
      this.setData({ dateTime1: e.detail.value });
     },
-    changeDateTimeColumn(e){
-      var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
-      
-      arr[e.detail.column] = e.detail.value;
-      dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
-      
-      this.setData({
-      dateTimeArray: dateArr,
-      dateTime: arr
-      });
-    },
-    changeDateTimeColumn1(e) {
-    var arr = this.data.dateTime1, dateArr = this.data.dateTimeArray1;
-    
-    arr[e.detail.column] = e.detail.value;
-    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
-    
-    this.setData({ 
-     dateTimeArray1: dateArr,
-     dateTime1: arr
+changeDateTimeColumn(e){
+  var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+  
+  arr[e.detail.column] = e.detail.value;
+  dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+  
+  this.setData({
+    dateTimeArray: dateArr,
+    dateTime: arr
+  });
+},
+changeDateTimeColumn1(e) {
+  var arr = this.data.dateTime1, dateArr = this.data.dateTimeArray1;
+  
+  arr[e.detail.column] = e.detail.value;
+  dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+  
+  this.setData({ 
+    dateTimeArray1: dateArr,
+    dateTime1: arr
+  });
+},
+
+chooseImg: function (e) {
+  var that = this;
+  var imgs = this.data.imgs;
+  if (imgs.length >= 9) {
+    this.setData({
+      lenMore: 1
     });
-    },
-
-    chooseImg: function (e) {
-      var that = this;
-      var imgs = this.data.imgs;
-      if (imgs.length >= 9) {
-        this.setData({
-          lenMore: 1
-        });
-        setTimeout(function () {
-          that.setData({
-            lenMore: 0
-          });
-        }, 2500);
-        return false;
+    setTimeout(function () {
+      that.setData({
+        lenMore: 0
+      });
+    }, 2500);
+    return false;
+  }
+  wx.chooseMessageFile({
+    count: 6,
+    type:'image',
+    success(res){
+      console.log(res)
+      for (let index = 0; index < res.tempFiles.length; index++) {
+        that.data.imgs_name[index]=res.tempFiles[index].name
+        that.data.imgs[index]=res.tempFiles[index].path
       }
-      wx.chooseImage({
-        count: 6, // 默认9
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-        success: function (res) {
-          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-          var tempFilePaths = res.tempFilePaths;
-          var imgs = that.data.imgs;
-          console.log(tempFilePaths + '----');
+      console.log(that.data.imgs_name)
+      console.log(that.data.imgs)
+      that.setData({
+        imgs:that.data.imgs
+      })
+    }
+  })
+  // wx.chooseImage({
+  //   count: 6, // 默认9
+  //   sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+  //   sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+  //   success: function (res) {
+  //     // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+  //     var tempFilePaths = res.tempFilePaths;
+  //     var imgs = that.data.imgs;
+  //     console.log(tempFilePaths + '----');
+  //     for (var i = 0; i < tempFilePaths.length; i++) {
+  //       if (imgs.length >= 6) {
+  //         that.setData({
+  //           imgs: imgs
+  //         });
+  //         return false;
+  //       } else {
+  //         imgs.push(tempFilePaths[i]);
+  //       }
+  //     }
+  //     console.log(imgs);
+  //     that.setData({
+  //       imgs: imgs
+  //     });
+  //   }
+  // });
+},
 
-          for (var i = 0; i < tempFilePaths.length; i++) {
-            if (imgs.length >= 6) {
-              that.setData({
-                imgs: imgs
-              });
-              return false;
-            } else {
-              imgs.push(tempFilePaths[i]);
-            }
-          }
-          console.log(imgs);
-          that.setData({
-            imgs: imgs
-          });
-        }
-      });
-    },
-
-    deleteImg: function (e) {
-      var imgs = this.data.imgs;
-      var index = e.currentTarget.dataset.index;
-      imgs.splice(index, 1);
-      this.setData({
-        imgs: imgs
-      });
-    },
+deleteImg: function (e) {
+  var imgs = this.data.imgs;
+  var imgs_name = this.data.imgs_name;
+  var index = e.currentTarget.dataset.index;
+  imgs.splice(index, 1);
+  imgs_name.splice(index,1)
+  this.setData({
+    imgs: imgs,
+    imgs_name:imgs_name
+  });
+  console.log(this.data.imgs)
+  console.log(this.data.imgs_name)
+},
     
     // 预览图片
 
-    previewImg: function (e) {
-      //获取当前图片的下标
-      var index = e.currentTarget.dataset.index;
-      //所有图片
-      var imgs = this.data.imgs;
-      wx.previewImage({
-        //当前显示图片
-        current: imgs[index],
-        //所有图片
-        urls: imgs
-      })
-    },
+previewImg: function (e) {
+  //获取当前图片的下标
+  var index = e.currentTarget.dataset.index;
+  //所有图片
+  var imgs = this.data.imgs;
+  wx.previewImage({
+    //当前显示图片
+    current: imgs[index],
+    //所有图片
+    urls: imgs
   })
+},
+})

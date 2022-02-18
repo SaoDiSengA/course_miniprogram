@@ -1,11 +1,11 @@
 <!--pages/shangkeqiandao/shangkeqiandao.wxml-->
 <view class="main">
   <view class="txt_name">
-    <text>{{courseName}}{{courseTime}}班</text>
+    <text>{{courseName}}{{className}}</text>
   </view>
   <view class="txt_log_container" >
-    <view class="txt_log_item" wx:for="{{logList}}" wx:key="id" bindtap="history_signin_item" id="{{item.id}}">
-      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.time}}</text>
+    <view class="txt_log_item" wx:for="{{logList}}" wx:key="id" bindtap="history_signin_item" id="{{item}}">
+      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item}}</text>
       <!-- <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.name}}</text>
       <text style="margin-left: 66rpx;">{{item.time}}</text>
       <view wx:if="{{item.isChecked=='true'}}" class="Checked"><text decode="true">已&nbsp;&nbsp;&nbsp;到</text></view> -->

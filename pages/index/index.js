@@ -68,7 +68,7 @@ Page({
 
         // 前端开发测试数据-老师端
         teacherId:2,
-        teacherRole:1,
+        teacherRole:0,
         teacherName:'',
         courseName:'',
         className:'',
@@ -249,7 +249,7 @@ Page({
     },
 
     // 点击切换页面
-    changePag(event){
+  changePag(event){
     var a = event.currentTarget.id;
     for(var i=0;i<this.data.courseList.length;i++){
         if(this.data.courseList[i].id==a){
@@ -260,7 +260,8 @@ Page({
             className:this.data.courseList[i].className,
             courseName:this.data.courseList[i].courseName,
             teacherName:this.data.courseList[i].teacherName,
-            courseTime:5,
+            // courseTime:this.data.courseList[i].courseTime,
+            courseTime:this.data.courseList[i].courseTime,
             startTime:this.data.courseList[i].startTime,
             endTime:this.data.courseList[i].endTime,
         })
