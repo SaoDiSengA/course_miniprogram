@@ -3,7 +3,7 @@
         <view class="tui-picker-detail">
             选择日期: {{date}}
             <view class="arrow">
-                <image src="/image/arrow.png"></image>
+                <image src="/icons/way.png"></image>
             </view>
         </view>
     </picker>
@@ -27,7 +27,7 @@
         <!-- 用来提示用户上传图片 -->
         <view class="weui-uploader__input-box pic" bindtap="chooseImg"> </view>
     </view>
-        <image src="/static/images/icon/icon/imgload.png" class="imgload" bindtap="chooseImg"></image>
+        <image src="/icons/imgload.png" class="imgload" bindtap="chooseImg"></image>
     </view>
     <button class="tijiao" style="width: 670rpx;height: 100rpx;" bindtap="release_hw">发布作业</button>
 </view>

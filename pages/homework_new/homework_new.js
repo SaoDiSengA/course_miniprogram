@@ -25,6 +25,7 @@ Page({
     'schoolId':'',
     'classId':'',
     'teacherName':'',
+    homeworkList:[]
   },
   hw_content(e){
     this.setData({
@@ -41,7 +42,7 @@ Page({
       })
     }else{
       wx.request({
-        url: 'http://localhost:8080/homework/homework', //仅为示例，并非真实的接口地址
+        url: 'http://localhost:8080/', //仅为示例，并非真实的接口地址
         method: 'get',
         data: {
           courseId:this.data.courseId,
@@ -49,18 +50,25 @@ Page({
           id:this.data.hw_id,
           release_hw_time:this.data.date,
           content:this.data.content,
-          img:this.data.imgs
+          // imgs:this.data.imgs
         },
         header: {
           'content-type': 'application/json' // 默认值
         },
         success: function(res){
-          console.log(res.data)
-          that.setData({
-            homeworkList:res.data,
-          })
         }
       })
+      for (let index = 0; index < this.data.imgs.length; index++) {
+        wx.uploadFile({
+          filePath: this.data.imgs[index],
+          name: 'img'+index,
+          url: 'http://localhost:8080/',
+          success:function(res){
+            console.log('hahah ')
+          }
+        })
+      }
+      
       let pages = getCurrentPages();
       let prevPage = pages[pages.length-2];
       prevPage.data.homeworkList.unshift({
@@ -83,11 +91,11 @@ Page({
    */
    onLoad(options){
     var that = this;
-    var id = options.id;
-    var hw_id = options.hw_id;
-    hw_id++;
-    console.log(id); 
-    console.log(hw_id);
+    // var id = options.id;
+    // var hw_id = options.hw_id;
+    // hw_id++;
+    // console.log(id); 
+    // console.log(hw_id);
     var that = this;
     var courseId = options.courseId;
     var schoolId = options.schoolId;
@@ -109,7 +117,7 @@ Page({
     // 再通过setData更改Page()里面的data，动态更新页面的数据
     this.setData({
       date: time,
-      hw_id:hw_id
+      // hw_id:hw_id
     });
     // 获取完整的年月日 时分秒，以及默认显示的数组
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -174,7 +182,7 @@ Page({
         return false;
       }
       wx.chooseImage({
-        // count: 1, // 默认9
+        count: 6, // 默认9
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
         success: function (res) {
