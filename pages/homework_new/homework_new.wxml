@@ -1,0 +1,33 @@
+<view class="tui-picker-content">
+    <picker mode="date" value="{{date}}" start="2015-10-01" end="2050-10-08" bindchange="changeDate">
+        <view class="tui-picker-detail">
+            选择日期: {{date}}
+            <view class="arrow">
+                <image src="/image/arrow.png"></image>
+            </view>
+        </view>
+    </picker>
+</view>
+<view class="content">
+    <view >详细信息：</view>
+    <view class="content_txt"><textarea bindinput="hw_content"></textarea></view>
+</view>
+<view class="load_img" style="border: 1rpx solid rgb(207, 206, 206);margin: 15rpx;">
+    <view style="margin: 15rpx;">上传图片（最多6张）</view>
+    <view class="weui-uploader">
+    <view class="img-v weui-uploader__bd">
+        <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+            <image class='weui-uploader__img '
+                    src="{{item}}"
+                    data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width: 200rpx;height: 200rpx;">
+                    <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+            </image>
+        </view>
+        
+        <!-- 用来提示用户上传图片 -->
+        <view class="weui-uploader__input-box pic" bindtap="chooseImg"> </view>
+    </view>
+        <image src="/static/images/icon/icon/imgload.png" class="imgload" bindtap="chooseImg"></image>
+    </view>
+    <button class="tijiao" style="width: 670rpx;height: 100rpx;" bindtap="release_hw">发布作业</button>
+</view>

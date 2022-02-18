@@ -1,0 +1,62 @@
+<!--pages/classes_content/classes_content.wxml-->
+<!-- 课程详情页面 -->
+
+<view class="page">
+
+    <!-- 上半部分信息 -->
+    <view class="classes_content_0">
+        <!-- 课程介绍轮播图 -->
+        <view class="classes_content_00">
+            <swiper>
+                <swiper-item class="classes_content_picture">
+                    <image src="https://pengkai.online/courese_management/classes.png"  class="classes_picture"></image>
+                </swiper-item>
+                <swiper-item class="classes_content_picture">
+                    <image src="https://pengkai.online/courese_management/classes.png" class="classes_picture"></image>
+                </swiper-item>
+                <swiper-item class="classes_content_picture">
+                    <image src="https://pengkai.online/courese_management/classes.png" class="classes_picture"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+
+        <!-- 课程详情信息 -->
+        <view class="classes_content_01">
+            <view class="classes_price">
+                <text style="color: #ff4302;">￥</text>
+                <text style="color: #ff4302;font-size: x-large;">2,980</text>
+                <text style="color: #ff4302;">/期</text>
+            </view>
+            <view class="classes_name">
+                <text>阿南音乐198课包会员购课优惠来啦~</text>    
+            </view>
+        </view>
+    </view>
+
+    <!-- 中间部分信息 -->
+    <view class="classes_content_1">
+        <view class="classes_grade">
+            <text>适合年级：二年级</text>
+        </view>
+        <!-- 分割线 -->
+        <view class="divide_info"></view>
+        <view class="classes_time">
+            <text space="emsp">上课时间：每周二、五 六点到七点</text>
+        </view>
+    </view>
+
+    <!-- 下面部分信息 -->
+    <view class="classes_content_2">
+        <view class="classes_introduce">
+            <text space="emsp">  《高等数学》是太原理工大学数学学院基础教研部基础数学教研室承担的一门必修课程，开设时间为本科一年级。本课程基本内容主要包括函数、极限与连续，导数与微分，中值定理与导数的应用，不定积分，定积分，多元函数微积分学，无穷级数，微分方程等。高等数学是高等院校各专业学生重要的通识教育基础必修课、学位课和研究生入学考试课。</text>
+        </view>
+    </view>
+
+    <!-- 报名按钮 -->
+    <view class="classes_content_3">
+        <view class="classes_apply_button" bindtap="apply_click">
+            <text style="color: white;font-size: large;" space="ensp">立 即 报 名</text>
+        </view>
+    </view>
+
+</view>

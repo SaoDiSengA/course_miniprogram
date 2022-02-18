@@ -1,0 +1,55 @@
+<!--pages/homework_content/homework_content.wxml-->
+<!-- 作业详情页面 -->
+
+<view class="container">
+
+    <view class="top_part">
+        <view class="">
+            
+        </view>
+
+    </view>
+
+    <!-- 作业详情内容 -->
+    <view class="homework_content">
+            <!-- 作业图标 -->
+            <view class="homework_icon">
+                <image src="/icons/homework_icon.png" class="homework_icon_picture"></image>
+            </view>
+
+            <!-- 课程名称 -->
+            <view class="classes_name">
+                <text style="font-size: large;">体育课程</text>
+            </view>
+
+            <!-- 作业信息 -->
+            <view class="homework_info">
+                <!-- 作业时间 -->
+                <view class="homework_date">
+                    <text style="font-size: small;" space="ensp">日期：2022.02.12  </text>
+                </view>
+
+                <!-- 作业来源 -->
+                <view class="homework_teacher">
+                    <text style="font-size: small;" space="ensp">  来自：班主任老师</text>
+                </view>
+            </view>
+
+            <!-- 作业内容 -->
+            <view class="homework_context">
+                <text space="emsp">{{ homework_context }}</text>
+            </view>
+    </view>
+
+    <!-- 作业详情背景样式 -->
+    <view class="homework_content_background">
+        <image src="https://pengkai.online/courese_management/homework_content_background.png" class="homework_content_background_picture"></image>
+    </view>
+
+    <!-- 底部圆样式 -->
+    <view class="bottom_part">
+    
+    </view>
+
+</view>
+

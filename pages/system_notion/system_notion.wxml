@@ -1,0 +1,19 @@
+<!--pages/system_notion/system_notion.wxml-->
+<!-- 系统通知页面 -->
+
+<view class="container">
+
+    <view class="notion_infos">
+        <view class="notion_info" wx:for="{{ all_notions }}" wx:for-item="one_notion">
+            <!-- 消息编号 -->
+            <view class="prompt_info">
+                <text>消息{{ one_notion.id }}:</text>
+            </view>
+            <!-- 消息标题 -->
+            <view class="notion_title">
+                <title>{{ one_notion.title }}</title>
+            </view>
+        </view>
+    </view>
+    
+</view>

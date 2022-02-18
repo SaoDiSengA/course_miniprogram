@@ -1,0 +1,67 @@
+/* pages/all_content/all_content.wxss */
+
+.classes_container {
+    width: 100%;
+    height: 100%;
+}
+
+.one_item {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    height: 160px;
+}
+
+.classes_info_background {
+    width: 100%;
+}
+
+.classes_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    position: absolute;
+    margin-top: 20px;
+    align-items: center;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.classes_picture {
+    width: 160px;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.classes_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.classes_name {
+    margin-top: 0px;
+    font-size: x-large;
+}
+
+.classes_grade {
+    margin-top: 15px;
+    font-size: small;
+}
+
+.classes_type {
+    margin-top: 15px;
+    font-size: small;
+}
+
+/* 报名按钮 */
+.apply_button {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 135px;
+    background-color: #ff9c00;
+    border: 1px solid #ff9c00;
+    border-radius: 4px;
+}
+

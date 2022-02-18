@@ -1,0 +1,32 @@
+<!--pages/order_success/order_success.wxml-->
+<!-- 支付成功页面 -->
+
+<view class="container">
+
+    <!-- 展示信息部分 -->
+    <view class="show_order">
+        <!-- 支付成功的icon -->
+        <view class="show_success">
+            <image src="/icons/order_success.png" class="show_success_icon"></image>
+        </view>
+        <!-- 支付成功提示信息1 -->
+        <view class="show_order_info_01">
+            <text style="font-size: 25px;">订单支付成功</text>
+        </view>
+        <!-- 支付成功提示信息2 -->
+        <view class="show_order_info_02">
+            <text style="font-size: 15px;">您可以在我的订单中查询已报名课程</text>
+        </view>
+    </view>
+
+    <!-- 分割线部分 -->
+    <view class="divide_line"></view>
+
+    <!-- 点击按钮部分 -->
+    <view class="check_button" bindtap="check_click">
+        <text style="color:white; font-size: 25px;">查看订单</text>
+    </view>
+
+</view>
+
+

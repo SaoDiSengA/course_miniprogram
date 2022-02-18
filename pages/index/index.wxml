@@ -1,0 +1,74 @@
+<!--pages/index/index.wxml-->
+<!-- 首页 -->
+
+
+<view>
+    <!-- 家长首页 -->
+    <view class="container" wx:if="{{ user_rank < 1 }}">
+        <!-- 顶部导航栏 -->
+        <scroll-view scroll-x scroll-with-animation class="tab-view" scroll-left="{{scrollLeft}}">
+            <view wx:for="{{tabbar}}" wx:key="{{index}}" class="tab-bar-item {{currentTab==index ? 'active' : ''}}"
+            data-current="{{index}}" catchtap="swichNav">
+            <text class="tab-bar-title">{{item}}</text>
+            </view>
+        </scroll-view>
+
+        <!-- 内容 -->
+        <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+            style="height:{{winHeight}}px">
+            <swiper-item wx:for="{{tabbar}}" wx:key="{{index}}">
+            <scroll-view scroll-y class="scoll-y">
+                <!-- 全部内容 -->
+                <block wx:if="{{index==0}}">
+                <include src="../all_content/all_content"></include>
+                </block>
+                <!-- 音乐内容 -->
+                <block wx:if="{{index==1}}">
+                <include src="../music_content/music_content"></include>
+                </block>
+                <!-- 体育内容 -->
+                <block wx:if="{{index==2}}">
+                <include src="../sport_content/sport_content"></include>
+                </block>
+                <!-- 科学内容 -->
+                <block wx:if="{{index==3}}">
+                <include src="../science_content/science_content"></include>
+                </block>
+                <!-- 美术内容 -->
+                <block wx:if="{{index==4}}">
+                <include src="../art_content/art_content"></include>
+                </block>
+                <!-- 主持内容 -->
+                <block wx:if="{{index==5}}">
+                <include src="../direct_content/direct_content"></include>
+                </block>
+                <!-- 舞蹈内容 -->
+                <block wx:if="{{index==6}}">
+                <include src="../dance_content/dance_content"></include>
+                </block>
+            </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 老师首页 -->
+    <view wx:else>
+        <view class="course_wrap">
+            <view class="course_item" wx:for="{{courseList}}" wx:key="id">
+            <view class="course_image">
+                <image mode="scaleToFill" src="{{item.img}}" style="width: 269rpx;height: 212rpx;float: left;"></image>
+                <view class="left-data">
+                <view class="title"><text>{{item.courseName}}</text></view>
+                <view class="title" style="margin-top: -30rpx;"><text></text></view>
+                <view class="info"><text>班级：{{item.className}}</text></view>
+                <view class="info"><text>时间：{{item.courseTime}}</text></view>
+                </view>
+                <view class="chakan" bindtap="changePag" id="{{item.id}}">
+                    <text style="color:aliceblue;font-size: 30rpx;">查看</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+</view>

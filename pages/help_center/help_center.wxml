@@ -1,0 +1,32 @@
+<!--pages/help_center/help_center.wxml-->
+<!-- 帮助中心页面 -->
+
+<view class="container">
+
+    <!-- 菜单标题提示信息 -->
+    <view class="title">
+        <text style="font-size: 20px;font-weight: normal;">常见问题:</text>
+    </view>
+
+    <!-- 问题详情展示 -->
+    <view class="quesition_list">
+        <!-- 一个问题展示 -->
+        <view class="one_quesition"  wx:for="{{ all_quesition }}" wx:for-item="one_quesition">
+            <!-- 问题简略信息 -->
+            <view class="quesition_info">
+                <!-- 问题编号 -->
+                <view class="prompt_info">
+                    <text>问题{{ one_quesition.quesition_id }}：</text>
+                </view>
+
+                <!-- 问题内容 -->
+                <view class="quesition_content">
+                    <text>{{ one_quesition.quesition_content }}</text>
+                </view>
+            </view>
+            <!-- 分割线 -->
+            <view class="divide_line"></view>
+        </view>
+    </view>
+
+</view>

@@ -1,0 +1,24 @@
+
+<view class="main">
+    <view class='img'>
+        <image src="/static/images/icon/icon/1.png" 
+        mode="scaleToFill" style="width:703rpx;height: 388rpx;"></image>
+    </view>
+    <view class="name"><text>{{courseName}}{{className}}</text></view>
+    <view class="category-container">
+        <view class="category-box">
+            <view class="lianjie" bindtap="teacherSignIn">
+                <image class="icon" src="/static/images/icon/icon/xuexi.png"></image>
+                <text class="lianjie_wen">上课签到</text>
+            </view>
+            <view url="" class="lianjie" bindtap="studentSignIn">
+            <image class="icon" src="/static/images/icon/icon/zhuanyeyukecheng.png"></image>
+            <text class="lianjie_wen">班级点名</text>
+            </view>
+            <view url="" class="lianjie" bindtap="homework">
+              <image class="icon" src="/static/images/icon/icon/yanshenxuexi.png"></image>
+              <text class="lianjie_wen">班级作业</text>
+            </view>
+        </view>
+    </view>
+</view>

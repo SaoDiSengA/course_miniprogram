@@ -1,0 +1,39 @@
+.txt_name{
+  height: 100rpx;
+  padding-left: 15rpx;
+  text-align: left;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid rgb(207, 206, 206);
+  font-size: larger;
+}
+.txt_log_txt{
+  height: 74rpx;
+  padding-left: 15rpx;
+  text-align: left;
+  line-height: 74rpx;
+}
+.txt_log_container{
+  margin: 15rpx;
+  border: 1rpx solid rgb(207, 206, 206);
+}
+
+.txt_log_item{
+  height: 93rpx;
+  border-bottom: 1rpx solid rgb(207, 206, 206);
+}
+button::after{ 
+	border: none; 
+}
+
+button {
+  position: fixed;
+    top: 85%;
+    left: 5%;
+    line-height: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 30px;
+    background: #698EF7;
+    color: white; 
+    padding: 0rpx 100rpx;
+}

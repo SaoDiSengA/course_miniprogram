@@ -1,0 +1,14 @@
+<!--pages/connect_us/connect_us.wxml-->
+<!-- 联系我们的页面 -->
+
+<view class="container">
+
+    <view class="telphone_number">
+        0351-8888888
+    </view>
+
+
+    <view class="divide_line">
+    </view>
+
+</view>

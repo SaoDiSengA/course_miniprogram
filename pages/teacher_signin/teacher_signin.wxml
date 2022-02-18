@@ -1,0 +1,16 @@
+<!--pages/shangkeqiandao/shangkeqiandao.wxml-->
+<view class="main">
+  <view class="txt_name">
+    <text>{{courseName}}{{className}}</text>
+  </view>
+  <View class="txt_log_txt"><text>签到记录</text></View>
+  <view class="txt_log_container" >
+    <view class="txt_log_item" wx:for="{{logList}}" wx:key="id">
+      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.teacherName}}</text>
+      <text style="margin-left: 66rpx;">{{item.day}}</text>
+      <text style="margin-left: 190rpx;">{{item.signInStatus}}</text>
+    </view>
+  </view>
+  <button class="tijiao" style="width: 670rpx;height: 100rpx;" bindtap="tijiao">上课签到</button>
+</view>
+

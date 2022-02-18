@@ -1,0 +1,13 @@
+<view class="main">
+  <view class="txt_name">
+    <view><text>{{name}}{{time}}班</text></view>
+    <view class="img"><image src="/static/images/icon/icon/calendar.png" style="width: 70rpx;height: 70rpx;"></image></view>
+  </view>
+  <view class="txt_log_container" >
+    <view class="txt_log_item" wx:for="{{logList}}" wx:key="id">
+      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.name}}</text>
+      <text style="margin-left: 66rpx;">{{item.time}}</text>
+      <view class="Checked" bindtap="check" id="{{item.id}}"><text decode="true" style="background-color:{{item.color}};">{{item.sign}}</text></view>
+    </view>
+  </view>
+</view>

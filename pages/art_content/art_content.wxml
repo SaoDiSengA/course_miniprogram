@@ -1,0 +1,26 @@
+<!--pages/art_content/art_content.wxml-->
+<!-- 首页-美术页面内容 -->
+
+<view class="classes_container">
+
+<block class="item" wx:for="{{ art_data }}" wx:for-item="one_data">
+    <view class="one_item">
+        <view class="classes_info_background">
+            <image src="https://pengkai.online/courese_management/classes_background.png" style="width: 100%;height: 160px;"></image>
+        </view>
+
+        <view class="classes_info">
+            <image src="https://pengkai.online/courese_management/classes.png" class="classes_picture"></image>
+            <view class="classes_content">
+                <view class="classes_name">{{ one_data.name }}</view>
+                <view class="classes_grade" style="color: #958f8f;">适合：{{ one_data.grade }}</view>
+                <view class="classes_type" style="color: #958f8f;">分类：{{ one_data.type }}</view>
+                <view class="apply_button" bindtap="apply_click">
+                    <text style="color: white;">立即报名</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+
+</view>

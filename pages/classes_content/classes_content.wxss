@@ -1,0 +1,85 @@
+/* pages/classes_content/classes_content.wxss */
+
+.page {
+    width: 100%;
+    height: 700px;
+    padding: 0px;
+    background-color: #ededed;
+}
+
+.classes_content_0 {
+    background-color: #ffffff;
+}
+
+
+.classes_content_picture {
+    width: 100%;
+    height: 250px;
+}
+
+.classes_picture {
+    width: 100%;
+    height: 200px;
+}
+
+.classes_price {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.classes_name {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.classes_content_1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100px;
+    background-color: #ffffff;
+}
+
+.classes_grade {
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+.divide_info {
+    border: 1px solid #eeeeee;
+}
+
+.classes_time {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.classes_content_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.classes_introduce {
+    width: 90%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.classes_content_3 {
+    margin-top: 20px;
+}
+
+.classes_apply_button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9c00;
+}
+
+

@@ -1,0 +1,44 @@
+<!--pages/confirm_order/confirm_order.wxml-->
+<!-- 支付确认页面 -->
+
+<view>
+
+    <!-- 订单页面的上半部分信息 -->
+    <view class="order_content_0">
+        <!-- 课程内容信息 -->
+        <view class="classes_info">
+            <!-- 课程图片 -->
+            <view class="classes_image">
+                <image src="https://pengkai.online/courese_management/classes.png" class="classes_picture"></image>
+            </view>
+            <!-- 课程名称及价格 -->
+            <view class="classes_content">
+                <view class="classes_name">
+                    <text style="font-size: large;">高等数学</text>
+                </view>
+                <view class="classes_price">
+                    <text style="font-size: large;">费用：2980</text>
+                </view>
+            </view>
+        </view>
+
+        <!-- 分割线 -->
+        <view class="divide_line"></view>
+
+        <!-- 下面部分信息 -->
+        <view class="order_content_01">
+            <view class="priece_info">
+                <text>费用合计：</text>
+            </view>
+            <view class="prices">
+                <text space="ensp">￥ 2980</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 订单页面的付款按钮 -->
+    <view class="pay_button" bindtap="pay_click">
+        <text style="color:white; font-size: 25px;">立即支付</text>
+    </view>
+
+</view>

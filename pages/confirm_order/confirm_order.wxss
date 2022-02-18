@@ -1,0 +1,81 @@
+/* pages/confirm_order/confirm_order.wxss */
+
+.order_content_0 {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.15);
+}
+
+.classes_info {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.classes_picture {
+    width: 150px;
+    height: 120px;
+}
+
+.classes_content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.classes_name{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.classes_price {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.divide_line {
+    width: 90%;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    border: 1px solid #eeeeee;
+}
+
+.order_content_01 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.priece_info {
+    margin-left: 10px;
+}
+
+.prices {
+    margin-left: 180px;
+}
+
+.pay_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background: linear-gradient(to right, #ffb94b, #ff9c00);
+    height:50px;
+    border-radius: 50px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+
+

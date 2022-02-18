@@ -1,0 +1,107 @@
+/* pages/login/login.wxss */
+
+.login {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.login_image {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg_image {
+    width: 430px;
+}
+
+.bg_image_2 {
+    position: absolute;
+    width: 430px;
+    margin-top: 0px;
+    opacity: 0.2;
+}
+
+.login_title {
+    /* width: 110px; */
+    display: flex;
+    color: #6786ff;
+    font-size: x-large;
+    margin-top: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_info {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+    height: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #cccccc;
+    font-size: 17px;
+}
+
+.input_username {
+    margin-left: 13px;
+}
+
+.password_info {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 30px;
+    border-bottom: 2px solid #cccccc;
+    font-size: 17px;
+}
+
+/* 密码输入框样式 */
+.input_pwd {
+    margin-left: 13px;
+}
+
+/* 登录按钮样式 */
+.submit_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background: rgba(103, 134, 255, 0.9);
+    height:50px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.extra_login {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.register_new_user {
+    color: #6786ff;
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+.forget_password {
+    color: #6786ff;
+    font-size: 15px;
+    margin-left: 190px;
+}
+
+

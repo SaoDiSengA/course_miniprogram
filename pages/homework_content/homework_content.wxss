@@ -1,0 +1,93 @@
+/* pages/homework_content/homework_content.wxss */
+/* 作业详情页面 */
+
+.container {
+    padding: 0px;
+    width: 100%;
+}
+
+/* 上部渐变色 */
+.top_part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 500px;
+    background: -webkit-linear-gradient(top , #7086ff, #f5f2ff);
+}
+
+/* 作业详情内容 */
+.homework_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    margin-top: -450px;
+    margin-bottom: 40px;
+    margin-left: 5px;
+    width: 70%;
+    height: 350px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* 作业图标盒子 */
+.homework_icon {
+    margin-left: -220px;
+    margin-bottom: 5px;
+}
+
+/* 作业图标 */
+.homework_icon_picture {
+    width: 30px;
+    height: 30px;
+}
+
+/* 作业布置的时间和老师 */
+.homework_info {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+/* 作业内容 */
+.homework_context {
+    margin-top: 15px;
+    width: 90%;
+}
+
+/* 作业详情页面背景 */
+.homework_content_background {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 3;
+    align-items: center;
+    margin-top: -400px;
+    width: 100%;
+    height: 400px;
+}
+
+/* 作业详情页面背景图片 */
+.homework_content_background_picture {
+    width: 80%;
+    height: 350px;
+}
+
+
+/* 下部渐变色 */
+.bottom_part {
+    position: absolute;
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+    border-radius: 500px;
+    margin-top: 350px;
+    margin-left: -215px;
+    background: linear-gradient(to bottom right, #a7b5ff, #c8b1ff); 
+}
+

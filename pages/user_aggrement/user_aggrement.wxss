@@ -1,0 +1,25 @@
+/* pages/useragreement/useragm.wxss */
+page{
+  font-size: 33rpx;
+  color: darkgray;
+}
+.container{
+  margin:35rpx;
+  display: flex;
+}
+button::after{ 
+	border: none; 
+}
+
+button {
+    position:fixed;
+    left: 5%;
+    top: 88%;
+    line-height: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 30px;
+    background: #698EF7;
+    color: white; 
+    padding: 0rpx 100rpx;
+}

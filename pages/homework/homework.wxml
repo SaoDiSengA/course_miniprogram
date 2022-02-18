@@ -1,0 +1,14 @@
+<view class="main">
+  <view class="txt_name">
+    <text>{{courseName}}{{className}}</text>
+  </view>
+  <View class="txt_log_txt"><text>班级作业：</text></View>
+  <view class="txt_log_container" >
+    <view class="txt_log_item" wx:for="{{homeworkList}}" wx:key="id" bindtap="hw" 
+    id="{{item.id}}">
+      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.postTime}}</text>
+      <text style="margin-left: 100rpx;">来自：{{item.teacherName}}</text>
+    </view>
+  </view>
+  <button class="tijiao" style="width: 670rpx;height: 100rpx;" bindtap="new_hw">新增作业</button>
+</view>

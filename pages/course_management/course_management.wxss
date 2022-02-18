@@ -1,0 +1,37 @@
+.main{
+  margin: 20rpx;
+}
+.category-container {
+  margin-top: 16rpx;
+  position: relative;
+}
+
+.category-box {
+  background-color:white;
+  display: flex;
+  flex-wrap: wrap;
+  width: 700rpx;
+  margin-left: 10rpx;
+  border-radius: 10px;
+  position: inherit;
+}
+.lianjie{
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+}
+.lianjie_wen {
+  font-size: 24rpx;
+}
+
+.icon{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 40rpx;
+  padding-bottom: 20rpx;
+  font-size: 24rpx;
+}
+.name text{
+  font-size: 33rpx;
+  font-weight: 600;
+}

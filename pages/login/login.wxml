@@ -1,0 +1,51 @@
+<!-- pages/login/login.wxml -->
+<!-- 登录页面 -->
+
+
+<view class="login">
+
+    <!-- 顶部图片 -->
+    <view class="login_image">
+        <image class="bg_image" src="https://pengkai.online/courese_management/login_background.png"></image>
+        <image class="bg_image_2" src="https://pengkai.online/courese_management/login_background_2.png"></image>
+    </view>
+
+    <!-- 平台名称 -->
+    <view class="login_title">
+        课后服务管理系统
+    </view>
+
+    <!-- 登录信息输入栏 -->
+    <view class="login_info">
+        <!-- 手机号信息 -->
+        <view class="user_info">
+            <image src="/icons/mobile.png" style="width: 20px; height: 20px;"></image>
+            <input class="input_username" placeholder="请输入手机号" placeholder-style="color:#cccccc;" bindinput="mobile_info"></input>
+        </view>
+
+        <!-- 密码信息 -->
+        <view class="password_info">
+            <image src="/icons/password.png" style="width: 20px; height: 20px;"></image>
+            <input class="input_pwd" placeholder="请输入密码" placeholder-style="color:#cccccc;"  bindinput="password_info" password="true"></input>
+        </view>
+
+        <!-- 登录按钮 -->
+        <view class="submit_info" bindtap="login_click">
+            <text style="color:white; font-size: 25px;" space="emsp" >登 录</text>
+        </view>
+    </view>
+
+    <!-- 附加功能栏 -->
+    <view class="extra_login">
+        <!-- 注册新用户 -->
+        <view class="register_new_user" bindtap="register_click">
+            注册新用户
+        </view>
+
+        <!-- 忘记密码 -->
+        <view class="forget_password" bindtap="forget_click">
+            忘记密码？
+        </view>
+    </view>
+
+</view>

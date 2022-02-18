@@ -1,0 +1,125 @@
+/* pages/parent_own/parent_own.wxss */
+
+/* 整体页面样式 */
+.parent_own {
+    background-color: #efefef;
+    height: 700px;
+}
+
+/* 首部样式 */
+.head{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* 头部整体样式 */
+.head_image_info {
+    margin-left: 10px;
+}
+
+.head_image {
+    width: 90px;
+    height: 90px;
+}
+
+/* 用户信息 */
+.user_info {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+/* 个人信息按钮 */
+.user_info_button {
+    margin-left: 10px;
+}
+
+/* 用户姓名 */
+.user_name {
+    color: #2b2b2b;
+    font-size: x-large;
+    margin-top: 5px;
+}
+
+/* 用户手机号 */
+.user_mobile_number {
+    color: #acacac;
+    margin-top: 10px;
+}
+
+/* 个人信息按钮 */
+.user_info_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 83px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #579bff), color-stop(1, #579bff));
+    height: 29px;
+    border-radius: 50px;
+    margin-top: 25px;
+    margin-left: 80px;
+}
+
+/* 底部抽屉 */
+.position-drawer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+/* 功能区部分 */
+.drawer{
+    width: 100%;
+    height: 70%;
+    position: relative;
+}
+  /* 抽屉的图片 */
+  .drawer-image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 30rpx;
+    margin-left: 20px;
+  }
+  /* 抽屉字体 */
+  .drawer text{
+    font-size: 28rpx;
+    color: #000000;
+  }
+
+  /* 抽屉的小箭头 */
+  .way{
+    position: absolute;
+    right: 5px;
+    width: 15rpx;
+    height: 30rpx;
+    margin-right: 20px;
+  }
+
+  /* 抽屉整个view控制 */
+  .drawer view{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    width:100%;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* 退出账号按钮样式 */
+.bottom_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background: rgba(103, 134, 255, 0.9);
+    height:50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+

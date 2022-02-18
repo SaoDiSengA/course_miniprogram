@@ -1,0 +1,50 @@
+/* pages/shangkeqiandao/shangkeqiandao.wxss */
+
+.txt_name{
+  height: 100rpx;
+  padding-left: 15rpx;
+  text-align: left;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid rgb(207, 206, 206);
+  font-size: medium;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.txt_log_txt{
+  height: 74rpx;
+  padding-left: 15rpx;
+  text-align: left;
+  line-height: 74rpx;
+}
+.txt_log_container{
+  margin: 15rpx;
+  border: 1rpx solid rgb(207, 206, 206);
+}
+
+.txt_log_item{
+  height: 93rpx;
+  border-bottom: 1rpx solid rgb(207, 206, 206);
+}
+
+.Checked{
+  float: right;
+  background-color: rgb(116,126,247);
+  margin-top: 25rpx;
+  margin-right: 10rpx;
+  color: rgb(255, 255, 255);
+}
+
+.noChecked{
+  float: right;
+  background-color: rgb(190,190,190);
+  margin-top: 25rpx;
+  margin-right: 10rpx;
+  color: rgb(255, 255, 255);
+} 
+
+.img{
+  margin-top: 40rpx;
+  margin-left: 280rpx;
+}

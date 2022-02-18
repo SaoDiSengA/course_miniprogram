@@ -1,0 +1,61 @@
+<!--pages/parent_own/parent_own.wxml-->
+<!-- 家长-我的页面 -->
+
+<view class="parent_own">
+
+    <!-- 家长页面的头部信息 -->
+    <view class="head">
+        <view class="head_image_info">
+            <image src='https://pengkai.online/courese_management/head_portrait.png' class='head_image'></image>
+        </view>
+        
+        <view class="user_info">
+            <view class="user_name">彭凯</view>
+            <view class="user_mobile_number">15319595933</view>
+        </view>
+
+        <view class="user_info_button" bindtap="check_user_info">
+            <text style="color:white; font-size: 15px;">个人信息</text>
+        </view>
+    </view>
+
+    <!-- 功能区 -->
+    <view class='position-drawer'>
+        <view class='drawer'>
+            <navigator url="/pages/my_classes/my_classes">
+                <view>
+                    <image src="/icons/my_classes.png" class='drawer-image'></image>
+                    <text>我的已报名课程</text>
+                    <image src="/icons/way.png" class='way'></image>
+                </view>
+            </navigator>
+            <navigator url="/pages/help_center/help_center">
+                <view>
+                    <image src="/icons/help_center.png" class='drawer-image'></image>
+                    <text>帮助中心</text>
+                    <image src="/icons/way.png" class='way'></image>
+                </view>
+            </navigator>
+            <navigator url="/pages/connect_us/connect_us">
+                <view>
+                    <image src="/icons/connect_us.png" class='drawer-image'></image>
+                    <text>联系我们</text>
+                    <image src="/icons/way.png" class='way'></image>
+                </view>
+            </navigator>
+            <navigator url="/pages/system_notion/system_notion">
+                <view>
+                    <image src="/icons/notion.png" class='drawer-image'></image>
+                    <text>系统通知</text>
+                    <image src="/icons/way.png" class='way'></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="bottom_button" bindtap="exit_click">
+        <text style="color:white; font-size: 25px;" >退出账号</text>
+    </view>
+
+</view>
