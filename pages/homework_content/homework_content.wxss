@@ -28,8 +28,8 @@
     z-index: 4;
     margin-top: -450px;
     margin-bottom: 40px;
-    margin-left: 5px;
-    width: 70%;
+    margin-left: -30rpx;
+    width: 72%;
     height: 350px;
     background-color: #ffffff;
     border-radius: 10px;
@@ -37,7 +37,7 @@
 
 /* 作业图标盒子 */
 .homework_icon {
-    margin-left: -220px;
+    margin-left: -450rpx;
     margin-bottom: 5px;
 }
 
@@ -50,7 +50,7 @@
 /* 作业布置的时间和老师 */
 .homework_info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 10px;
 }
 
@@ -87,7 +87,7 @@
     height: 200px;
     border-radius: 500px;
     margin-top: 350px;
-    margin-left: -215px;
+    margin-left: -200px;
     background: linear-gradient(to bottom right, #a7b5ff, #c8b1ff); 
 }
 

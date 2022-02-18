@@ -80,18 +80,18 @@ Page({
         endTime:'',
         courseList:[
             {
-                'id':3,
-                'courseName':'数学课',
-                'courseTime':'周一、周二',
-                'className':'小班',
-                'img':'https://pengkai.online/courese_management/classes.png',
-                courseId:'2',
-                schoolId:'2',
-                classId:'2',
-                'teacherName':'王老师',
-                courseTime:'周一',
-                startTime:'7:00:00',
-                endTime:'8:00:00',
+                // 'id':3,
+                // 'courseName':'数学课',
+                // 'courseTime':'周一、周二',
+                // 'className':'小班',
+                // 'img':'https://pengkai.online/courese_management/classes.png',
+                // courseId:'2',
+                // schoolId:'2',
+                // classId:'2',
+                // 'teacherName':'王老师',
+                // courseTime:'周一',
+                // startTime:'7:00:00',
+                // endTime:'8:00:00',
             }
         ]
     },
@@ -100,12 +100,30 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      const that=this; 
+      wx.request({
+        url: 'http://localhost:8080/fr_courseType/getTeachCourses', //仅为示例，并非真实的接口地址
+        method: 'get',
+        data: {
+          teacherId:that.data.teacherId,
+          teacherRole:that.data.teacherRole
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function(res){
+          console.log(res.data)
+          that.setData({
+            courseList:res.data,
+          })
+        }
+      })
         // 将需要显示的页面的角色信息传入
         this.setData({
             user_rank: app.globalData.user_rank
         })
 
-        let that = this;
+        // let that = this;
         //  高度自适应
         wx.getSystemInfo({
         success: function (res) {
@@ -242,7 +260,7 @@ Page({
             className:this.data.courseList[i].className,
             courseName:this.data.courseList[i].courseName,
             teacherName:this.data.courseList[i].teacherName,
-            courseTime:4,
+            courseTime:5,
             startTime:this.data.courseList[i].startTime,
             endTime:this.data.courseList[i].endTime,
         })

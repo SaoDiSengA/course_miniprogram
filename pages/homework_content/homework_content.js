@@ -5,14 +5,39 @@ Page({
      * 页面的初始数据
      */
     data: {
-        homework_context: '  广播操可以提高神经系统调节功能；广播操可以帮助人体获得更多的氧气；广播操能够培养身体的良好姿态；广播操对呼吸系统和心血管系统有良好的影响。'
+        'courseName':'',
+        'postTime':'',
+        'imgs':'',
+        'homeworkContent':'',
+        'teacherName':'',
+        hw_list:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        var id = options.id; //点进来的id
+        console.log(id);  //当前id
+        // var content = that.data.hw_list[id-1].content; 
+        // console.log(content);
+        wx.request({
+            url: 'http://localhost:8080/homework/homework/'+options.id, //仅为示例，并非真实的接口地址
+            method: 'get',
+            data: {
+            
+            },
+            header: {
+            'content-type': 'application/json' // 默认值
+            },
+            success: function(res){
+            console.log(res.data)
+            that.setData({
+                hw_list:res.data,
+            })
+            }
+        })
     },
 
     /**

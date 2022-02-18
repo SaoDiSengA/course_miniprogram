@@ -2,7 +2,7 @@
 <view class="main">
   <view class="txt_name">
     <text>{{courseName}}{{className}}</text>
-    <view class="img" bindtap="historySignin"><image src="/static/images/icon/icon/calendar.png" style="width: 70rpx;height: 70rpx;"></image></view>
+    <view class="img" bindtap="historySignin"><image src="/icons/calendar.png" style="width: 70rpx;height: 70rpx;"></image></view>
   </view>
   <view class="txt_log_container" >
     <view class="txt_log_item" wx:for="{{logList}}" wx:key="id">

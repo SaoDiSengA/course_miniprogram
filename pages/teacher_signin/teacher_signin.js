@@ -16,31 +16,6 @@ Page({
     startTime:'',
     endTime:'',
     logList:[],
-    // logList:[{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'0'
-    // },{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'0'
-    // },{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'1'
-    // },{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'0'
-    // },{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'1'
-    // },{
-    //   'name':'王老师',
-    //   'time':'2022/01/05',
-    //   'signInStatus':'1'
-    // }]
   },
 
   tijiao(){
@@ -51,7 +26,8 @@ Page({
         icon: 'none',
         duration: 2000//持续的时间
       })
-    }else{
+    }
+    else{
       const that=this; 
       wx.request({
         url: 'http://localhost:8080/fr_courseType/updateTeacherSignRecord', //仅为示例，并非真实的接口地址
@@ -72,25 +48,35 @@ Page({
         },
         success: function(res){
           console.log(res.data)
-          wx.showToast({
-            title: '签到成功',
-            icon:'success',
-            duration: 2000//持续的时间
-          })
+          if(res.data.Error=='签到日期有误，不得签到！'){
+            wx.showToast({
+              title: '失败，日期已过',
+              icon:'error',
+              duration: 2000//持续的时间
+            })
+          }else if(that.data.logList[0].day==that.data.logList[0].signInTime){
+            wx.showToast({
+              title: '今日以签到',
+              icon:'error',
+              duration: 2000//持续的时间
+            })
+          }
+          else{
+            wx.showToast({
+              title: '签到成功',
+              icon:'success',
+              duration: 2000//持续的时间
+            })
+            that.setData({
+              ['logList['+0+'].signInStatus']:'已签到',
+            })
+          }
           that.setData({
-            ['logList['+(that.data.logList.length-1)+'].signInStatus']:'已签到',
+            // logList:this.data.logList,
+            date:time
           })
-          // that.data.logList.unshift({
-          //   'teacherName':that.data.teacherName,
-          //   'day':res.data.list.day,
-          //   'signInStatus':'已签到'
-          // })
         }
       })
-      this.setData({
-        // logList:this.data.logList,
-        date:time
-    })
     }
     
   },

@@ -73,7 +73,7 @@ Page({
             })
         }else {
             // 角色控制，0表示家长，1表示老师
-            app.globalData.user_rank = 0
+            app.globalData.user_rank = 1
             wx.switchTab({
               url: '../index/index',
             })
