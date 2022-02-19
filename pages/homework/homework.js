@@ -44,7 +44,26 @@ Page({
     // }]
 
   },
-
+  loaddata(){
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8080/homework/homework', //仅为示例，并非真实的接口地址
+      method: 'get',
+      data: {
+        courseId:that.data.courseId,
+        classId:that.data.classId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function(res){
+        console.log(res.data)
+        that.setData({
+          homeworkList:res.data.reverse(),
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -64,23 +83,8 @@ Page({
       startTime:options.startTime,
       endTime:options.endTime,
     })
-    wx.request({
-      url: 'http://localhost:8080/homework/homework', //仅为示例，并非真实的接口地址
-      method: 'get',
-      data: {
-        courseId:this.data.courseId,
-        classId:this.data.classId
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function(res){
-        console.log(res.data)
-        that.setData({
-          homeworkList:res.data,
-        })
-      }
-    })
+    that.loaddata()
+    
   },
 
   /**
@@ -94,14 +98,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
     // this.data.homeworkList.unshift({
     //   'name':'王老师',
     //   'time':'2022.01.10'
     // })
-    this.setData({
-      homeworkList:this.data.homeworkList
-    })
-    console.log(this.data.content)
+    // this.setData({
+    //   homeworkList:this.data.homeworkList
+    // })
+    // console.log(this.data.content)
   },
 
   /**

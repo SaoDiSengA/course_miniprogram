@@ -77,17 +77,20 @@ Page({
       for (let index = 0; index < this.data.imgs.length; index++) {
         wx.uploadFile({
           filePath: this.data.imgs[index],
-          name: 'img'+index,
+          name: 'file',
           url: 'http://localhost:8080/upload/picture',
           success:function(res){
             console.log('hahah ')
           }
         })
       }
-      wx.navigateTo({
-        url: '/pages/homework/homework?courseId=' + this.data.courseId
-        +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime
+      wx.navigateBack({
+        delta: 2,
       })
+      // wx.navigateTo({
+      //   url: '/pages/homework/homework?courseId=' + this.data.courseId
+      //   +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime
+      // })
     }
       
       
