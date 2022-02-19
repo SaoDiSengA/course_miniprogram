@@ -16,7 +16,7 @@ Page({
     courseTime:'',
     startTime:'',
     endTime:'',
-    day:'',
+    switchDay:'',
     logList:[],
     courseList:[{
       'id':1,
@@ -93,9 +93,10 @@ Page({
       courseTime:options.courseTime,
       startTime:options.startTime,
       endTime:options.endTime,
+      switchDay:options.switchDay
     })
     wx.request({
-      url: 'http://localhost:8080/fr_courseType/getSignDayList', //仅为示例，并非真实的接口地址
+      url: 'http://localhost:8080/fr_courseType/getStudentSignCertainDay', //仅为示例，并非真实的接口地址
       method: 'get',
       data: {
         teacherId:that.data.teacherId,
@@ -107,7 +108,7 @@ Page({
         courseTime:that.data.courseTime,
         startTime:that.data.startTime,
         endTime:that.data.endTime,
-        switchDay:'',
+        switchDay:that.data.switchDay,
       },
       header: {
         'content-type': 'application/json' // 默认值

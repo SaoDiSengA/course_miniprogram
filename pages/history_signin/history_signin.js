@@ -59,10 +59,10 @@ Page({
     // }]
   },
   history_signin_item(event){
-    console.log(event.currentTarget)
+    console.log(event.currentTarget.id)
     wx.navigateTo({
       url: '/pages/history_signin_item/history_signin_item?courseId=' + this.data.courseId
-      +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime+'&switchDay='+event.currentTarget
+      +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime+'&switchDay='+event.currentTarget.id
     })
   },
   /**
@@ -103,6 +103,9 @@ Page({
       },
       success: function(res){
         console.log(res.data)
+        // for (let index = 0; index < res.data.length; index++) {
+        //   res.data[index].haha=res.data[index]
+        // }
         that.setData({
           logList:res.data
         })

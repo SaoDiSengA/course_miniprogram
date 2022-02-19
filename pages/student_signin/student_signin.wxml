@@ -6,10 +6,10 @@
   </view>
   <view class="txt_log_container" >
     <view class="txt_log_item" wx:for="{{logList}}" wx:key="id">
-      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.name}}</text>
-      <text style="margin-left: 66rpx;">{{item.time}}</text>
-      <view wx:if="{{item.isChecked=='true'}}" class="Checked"><text decode="true">已&nbsp;&nbsp;&nbsp;到</text></view>
-      <view wx:if="{{item.isChecked=='false'}}" class="noChecked"><text decode="true">未&nbsp;&nbsp;&nbsp;到</text></view>
+      <text style="margin-left: 15rpx;line-height: 93rpx;">{{item.studentName}}</text>
+      <text style="margin-left: 66rpx;">{{item.day}}</text>
+      <view wx:if="{{item.signStudent==1}}" class="Checked"><text decode="true">已&nbsp;&nbsp;&nbsp;到</text></view>
+      <view wx:if="{{item.signStudent==0}}" class="noChecked"><text decode="true">未&nbsp;&nbsp;&nbsp;到</text></view>
     </view>
   </view>
 </view>

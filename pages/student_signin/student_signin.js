@@ -76,20 +76,53 @@ Page({
   onLoad: function (options) {
   //签到图标显示
     var that = this;
-    var courseId = options.courseId;
-    var schoolId = options.schoolId;
-    var classId = options.classId;
-    var courseName = options.courseName;
-    var className = options.className;
-    console.log(courseId,schoolId,classId,courseName,className,options.teacherName,options.teacherRole);
+    console.log(options.courseId,options.schoolId,options.classId,options.courseName,options.className,options.teacherName,options.teacherRole,options.teacherId,options.courseTime,options.startTime,options.endTime);
     that.setData({
-      courseId:courseId,
-      schoolId:schoolId,
-      classId:classId,
-      courseName:courseName,
-      className:className,
+      courseId:options.courseId,
+      schoolId:options.schoolId,
+      classId:options.classId,
+      courseName:options.courseName,
+      className:options.className,
       teacherName:options.teacherName,
-      teacherRole:options.teacherRole
+      teacherRole:options.teacherRole,
+      teacherId:options.teacherId,
+      courseTime:options.courseTime,
+      startTime:options.startTime,
+      endTime:options.endTime,
+    })
+    wx.request({
+      url: 'http://localhost:8080/fr_courseType/getStudentSignRecords', //仅为示例，并非真实的接口地址
+      method: 'get',
+      data: {
+        teacherId:that.data.teacherId,
+        teacherRole:that.data.teacherRole,
+        courseId:that.data.courseId,
+        schoolId:that.data.schoolId,
+        classId:that.data.classId,
+        teacherName:that.data.teacherName,
+        courseTime:that.data.courseTime,
+        startTime:that.data.startTime,
+        endTime:that.data.endTime,
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function(res){
+        console.log(res.data)
+        for (let index = 0; index < res.data.length; index++) {
+          if(res.data[index].signStudent==1){
+            res.data[index].color='rgb(190,190,190)';
+            res.data[index].sign='已&nbsp;&nbsp;&nbsp;点';
+          }else{
+            res.data[index].color='rgb(116,126,247)';
+            res.data[index].sign='点&nbsp;&nbsp;&nbsp;名';
+          }
+        }
+        that.setData({
+          logList:res.data
+        })
+        console.log(that.data.logList)
+      }
     })
   },
 

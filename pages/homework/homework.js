@@ -50,20 +50,19 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var courseId = options.courseId;
-    var schoolId = options.schoolId;
-    var classId = options.classId;
-    var courseName = options.courseName;
-    var className = options.className;
-    console.log(courseId,schoolId,classId,courseName,className,options.teacherName,options.teacherRole);
+    console.log(options.courseId,options.schoolId,options.classId,options.courseName,options.className,options.teacherName,options.teacherRole,options.teacherId,options.courseTime,options.startTime,options.endTime);
     that.setData({
-      courseId:courseId,
-      schoolId:schoolId,
-      classId:classId,
-      courseName:courseName,
-      className:className,
+      courseId:options.courseId,
+      schoolId:options.schoolId,
+      classId:options.classId,
+      courseName:options.courseName,
+      className:options.className,
       teacherName:options.teacherName,
-      teacherRole:options.teacherRole
+      teacherRole:options.teacherRole,
+      teacherId:options.teacherId,
+      courseTime:options.courseTime,
+      startTime:options.startTime,
+      endTime:options.endTime,
     })
     wx.request({
       url: 'http://localhost:8080/homework/homework', //仅为示例，并非真实的接口地址
@@ -147,8 +146,8 @@ Page({
   },
   new_hw(e){
     wx.navigateTo({
-      url: '/pages/homework_new/homework_new?id='+this.data.id+'&hw_id='+this.data.homeworkList.length+'&courseId=' + this.data.courseId
-      +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole
+      url: '/pages/homework_new/homework_new?courseId=' + this.data.courseId
+      +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime
 
     })
   }

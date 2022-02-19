@@ -47,7 +47,8 @@ function getNewDateArry(){
       minu = withData(newDate.getMinutes()),
       seco = withData(newDate.getSeconds());
 
-  return [year, mont, date, hour, minu, seco];
+  // return [year, mont, date, hour, minu, seco];
+  return [year, mont, date, hour, minu, seco].map(formatNumber).join('-');
 }
 function dateTimePicker(startYear,endYear,date) {
   // 返回默认显示的数组和联动数组的声明
@@ -91,5 +92,6 @@ function formatNumber(n) {
 module.exports = {
   dateTimePicker: dateTimePicker,
   getMonthDay: getMonthDay,
-  formatTime: formatTime
+  formatTime: formatTime,
+  getNewDateArry:getNewDateArry,
 }

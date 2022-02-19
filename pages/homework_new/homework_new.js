@@ -1,5 +1,6 @@
 
 var dateTimePicker = require('../../utils/dateTimePicker.js');
+var utils = require('../../utils/util.js');
 Page({
  
   /**
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     imgs_name:[],
-    hw_id:'',
+    postTime:'',
     imgs: [],
     date: '',
     content:'',
@@ -19,6 +20,7 @@ Page({
     startYear: 2000,
     endYear: 2050,
     'content':'',
+    'teacherId':'',
     'teacherRole':'',
     'courseName':'',
     'className':'',
@@ -26,6 +28,9 @@ Page({
     'schoolId':'',
     'classId':'',
     'teacherName':'',
+    courseTime:'',
+    startTime:'',
+    endTime:'',
     homeworkList:[]
   },
   hw_content(e){
@@ -35,6 +40,10 @@ Page({
     console.log(this.data.content)
   },
   release_hw(){
+    var postTime = Number(new Date());
+    this.setData({
+      postTime:postTime
+    })
     if(this.data.content==''){
       wx.showToast({
         title: '内容不能为空',
@@ -48,8 +57,12 @@ Page({
         data: {
           courseId:this.data.courseId,
           classId:this.data.classId,
+          teacherId:this.data.teacherId,
+          role:this.data.teacherRole,
+          courseTime:this.data.courseTime,
           teacherName:this.data.teacherName,
-
+          courseName:this.data.courseName,
+          postTime:this.data.postTime,
           content:this.data.content,
           imgs:this.data.imgs_name
         },
@@ -57,63 +70,63 @@ Page({
           'content-type': 'application/json' // 默认值
         },
         success: function(res){
+          console.log('hahah ')
+          console.log('hahah ')
         }
       })
       for (let index = 0; index < this.data.imgs.length; index++) {
         wx.uploadFile({
           filePath: this.data.imgs[index],
           name: 'img'+index,
-          url: 'http://localhost:8080/',
+          url: 'http://localhost:8080/upload/picture',
           success:function(res){
             console.log('hahah ')
           }
         })
       }
-      
-      
-      let pages = getCurrentPages();
-      let prevPage = pages[pages.length-2];
-      prevPage.data.homeworkList.unshift({
-        'id':this.data.hw_id,
-        'name':'王老师',
-        'time':this.data.date,
-      })
-      prevPage.setData({
-        content:this.data.content
-      })
-      wx.navigateBack({
-        detail:0
+      wx.navigateTo({
+        url: '/pages/homework/homework?courseId=' + this.data.courseId
+        +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime
       })
     }
+      
+      
+      // let pages = getCurrentPages();
+      // let prevPage = pages[pages.length-2];
+      // prevPage.data.homeworkList.unshift({
+      //   'id':this.data.hw_id,
+      //   'name':'王老师',
+      //   'time':this.data.date,
+      // })
+      // prevPage.setData({
+      //   content:this.data.content
+      // })
+      // wx.navigateBack({
+      //   detail:0
+      // })
+    },
    
-  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
    onLoad(options){
-    var that = this;
-    // var id = options.id;
-    // var hw_id = options.hw_id;
-    // hw_id++;
-    // console.log(id); 
-    // console.log(hw_id);
-    var that = this;
-    var courseId = options.courseId;
-    var schoolId = options.schoolId;
-    var classId = options.classId;
-    var courseName = options.courseName;
-    var className = options.className;
-    console.log(courseId,schoolId,classId,courseName,className,options.teacherName,options.teacherRole);
-    that.setData({
-      courseId:courseId,
-      schoolId:schoolId,
-      classId:classId,
-      courseName:courseName,
-      className:className,
-      teacherName:options.teacherName,
-      teacherRole:options.teacherRole
-    })
+      var that = this;
+      console.log(options.courseId,options.schoolId,options.classId,options.courseName,options.className,options.teacherName,options.teacherRole,options.teacherId,options.courseTime,options.startTime,options.endTime);
+      that.setData({
+        courseId:options.courseId,
+        schoolId:options.schoolId,
+        classId:options.classId,
+        courseName:options.courseName,
+        className:options.className,
+        teacherName:options.teacherName,
+        teacherRole:options.teacherRole,
+        teacherId:options.teacherId,
+        courseTime:options.courseTime,
+        startTime:options.startTime,
+        endTime:options.endTime,
+      })
 
     var time = dateTimePicker.formatTime(new Date());
     // 再通过setData更改Page()里面的data，动态更新页面的数据
