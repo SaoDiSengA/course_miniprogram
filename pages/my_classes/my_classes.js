@@ -37,10 +37,13 @@ Page({
                 'phone': app.globalData.user_mobile_number
             },
             success(res) {
+            	// 获取返回的已报名课程数据
+            	var my_apply_classes = res.data.data
                 // 修改课程类型，将它转变为字符串形式
-                that.change_course_type_to_string(that.data.my_apply_classes)
+                that.change_course_type_to_string(my_apply_classes)
+                // 将数据传入到data域中
                 that.setData({
-                    my_apply_classes: res.data.data
+                    my_apply_classes: my_apply_classes
                 })
             }
         })

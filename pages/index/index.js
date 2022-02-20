@@ -264,10 +264,10 @@ Page({
       },
       success(res){
         app.globalData.course_data = res.data.data
+        wx.navigateTo({
+      		url: '../classes_content/classes_content',
+    	})
       }
-    })
-    wx.navigateTo({
-      url: '../classes_content/classes_content',
     })
   },
 
