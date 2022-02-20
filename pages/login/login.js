@@ -73,62 +73,62 @@ Page({
             })
         }else {
             // 角色控制，0表示家长，1表示老师
-            app.globalData.user_rank = 1
-            wx.switchTab({
-              url: '../index/index',
-            })
-            // var res = this.judge_mobile_number(this.data.user_mobile_number)
-            // if(res){
-            //     // 向后台发送请求
-            //     var that = this
-            //     wx.request({
-            //       url: 'http://localhost:8080/parents/login',
-            //       method: "POST",
-            //       header: {
-            //         'content-type': "application/x-www-form-urlencoded",
-            //         'phone': this.data.user_mobile_number,
-            //         'password': this.data.user_password
-            //       },
-            //       success(res) {
-            //         console.log(res)
-            //         var status = res.data.code
-            //         var role = res.data.data.role
-            //         if (status == 400) {
-            //           wx.showModal({
-            //             title: '',
-            //             content: '账号或密码错误，请重新尝试!',
-            //             showCancel: false,
-            //             success(res) {
-            //             }
-            //           })
-            //         }else if(status == 401){
-            //           wx.showModal({
-            //             title: '',
-            //             content: '登录失败，未注册!',
-            //             showCancel: false,
-            //             success(res) {
-            //             }
-            //           })
-            //         }else if(status == 200){
-            //           // 根据角色区分，跳转到不同的页面
-            //           if(role == 'parents'){
-            //             wx.switchTab({
-            //               url: '../index/index',
-            //             })
-            //           }else if(role == ''){
+            // app.globalData.user_rank = 1
+            // wx.switchTab({
+            //   url: '../index/index',
+            // })
+            var res = this.judge_mobile_number(this.data.user_mobile_number)
+            if(res){
+                // 向后台发送请求
+                var that = this
+                wx.request({
+                  url: 'http://localhost:8080/parents/login',
+                  method: "POST",
+                  header: {
+                    'content-type': "application/x-www-form-urlencoded",
+                    'phone': this.data.user_mobile_number,
+                    'password': this.data.user_password
+                  },
+                  success(res) {
+                    console.log(res)
+                    var status = res.data.code
+                    var role = res.data.data.role
+                    if (status == 400) {
+                      wx.showModal({
+                        title: '',
+                        content: '账号或密码错误，请重新尝试!',
+                        showCancel: false,
+                        success(res) {
+                        }
+                      })
+                    }else if(status == 401){
+                      wx.showModal({
+                        title: '',
+                        content: '登录失败，未注册!',
+                        showCancel: false,
+                        success(res) {
+                        }
+                      })
+                    }else if(status == 200){
+                      // 根据角色区分，跳转到不同的页面
+                      if(role == 'parents'){
+                        wx.switchTab({
+                          url: '../index/index',
+                        })
+                      }else if(role == ''){
 
-            //           }
-            //         }
-            //       }
-            //     })
-            // }else{
-            //     wx.showModal({
-            //         title: '',
-            //         content: '您输入的手机号不符合格式要求！',
-            //         showCancel: false,
-            //         success(res) {}
-            //     })
-            // }
+                      }
+                    }
+                  }
+                })
+            }else{
+                wx.showModal({
+                    title: '',
+                    content: '您输入的手机号不符合格式要求！',
+                    showCancel: false,
+                    success(res) {}
+                })
+            }
         }
     }
 })
