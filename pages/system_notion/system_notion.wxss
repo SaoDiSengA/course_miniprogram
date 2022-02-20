@@ -11,15 +11,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
+    margin-top: 10px;
     background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
 }
 
 /* 单个消息显示 */
+.one_notion {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .notion_info {
     display: flex;
     flex-direction: row;
     justify-content: left;
+    height: 20px;
+}
+
+/* 分割线 */
+.divide_line {
+    width: 90%;
+    border: 1px solid #cccccc;
 }
 
 

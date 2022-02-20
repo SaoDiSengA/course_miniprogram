@@ -1,0 +1,16 @@
+/* pages/message_content/message_content.wxss */
+
+
+/* 页面基础样式 */
+.container {
+    padding: 0px;
+}
+
+/* 消息详情展示样式 */
+.message_content {
+    width: 90%;
+    margin-top: 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}

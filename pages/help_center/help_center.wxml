@@ -13,7 +13,7 @@
         <!-- 一个问题展示 -->
         <view class="one_quesition"  wx:for="{{ all_quesition }}" wx:for-item="one_quesition">
             <!-- 问题简略信息 -->
-            <view class="quesition_info">
+            <view class="quesition_info" bindtap="check_quesition">
                 <!-- 问题编号 -->
                 <view class="prompt_info">
                     <text>问题{{ one_quesition.quesition_id }}：</text>

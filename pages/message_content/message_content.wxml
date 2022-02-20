@@ -1,0 +1,10 @@
+<!--pages/message_content/message_content.wxml-->
+<!-- 系统通知-消息详情页面 -->
+
+<view class="container">
+
+    <view class="message_content">
+        <text style="font-size: medium;" space="emsp">  {{ message_content }}</text>
+    </view>
+
+</view>
