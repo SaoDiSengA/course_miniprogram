@@ -64,7 +64,7 @@ Page({
         science_data: [],
         art_data: [],
         direct_data: [],
-        dance_data: []
+        dance_data: [],
 
         // 前端开发测试数据-老师端
         teacherId:2,
