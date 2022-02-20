@@ -105,6 +105,8 @@ Page({
         user_rank: app.globalData.user_rank
       })
 
+      console.log(this.data.user_rank)
+
       // 老师端进行跳转
       if(this.data.user_rank == 1){
         var that = this
