@@ -13,9 +13,9 @@
             <image src="https://pengkai.online/courese_management/classes.png" class="classes_picture"></image>
             <view class="classes_content">
                 <view class="classes_name">{{ one_data.name }}</view>
-                <view class="classes_grade" style="color: #958f8f;">适合：{{ one_data.grade }}</view>
+                <view class="classes_grade" style="color: #958f8f;">适合：{{ one_data.adapt_level }}</view>
                 <view class="classes_type" style="color: #958f8f;">分类：{{ one_data.type }}</view>
-                <view class="apply_button" bindtap="apply_click">
+                <view class="apply_button" id="{{ one_data.name }}" bindtap="apply_click">
                     <text style="color: white;">立即报名</text>
                 </view>
             </view>
