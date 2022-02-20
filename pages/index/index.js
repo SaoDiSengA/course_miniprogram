@@ -107,6 +107,7 @@ Page({
 
       // 老师端进行跳转
       if(this.data.user_rank == 1){
+        var that = this
       	wx.request({
 	        url: 'http://localhost:8080/fr_courseType/getTeachCourses', //仅为示例，并非真实的接口地址
 	        method: 'get',
