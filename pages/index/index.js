@@ -258,9 +258,11 @@ Page({
     wx.request({
       url: 'http://localhost:8080/parents/queryCourse',
       method: 'GET',
+      data: {
+      	'couresName': course_name
+      },
       header: {
-        'content-type': "application/x-www-form-urlencoded",
-        'couresName': course_name
+        'content-type': "application/x-www-form-urlencoded"
       },
       success(res){
         app.globalData.course_data = res.data.data
