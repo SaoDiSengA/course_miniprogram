@@ -131,6 +131,9 @@ Page({
 
       // 家长端进行跳转
       if (this.data.user_rank == 0) {
+      	// 修改对象作用域
+      	var that = this
+
       	//  高度自适应
         wx.getSystemInfo({
 	        success: function (res) {
