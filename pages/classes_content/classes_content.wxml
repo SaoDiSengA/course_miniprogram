@@ -24,11 +24,11 @@
         <view class="classes_content_01">
             <view class="classes_price">
                 <text style="color: #ff4302;">￥</text>
-                <text style="color: #ff4302;font-size: x-large;">2,980</text>
+                <text style="color: #ff4302;font-size: x-large;">{{ course_data.price }}</text>
                 <text style="color: #ff4302;">/期</text>
             </view>
             <view class="classes_name">
-                <text>阿南音乐198课包会员购课优惠来啦~</text>    
+                <text>{{ course_data.title }}~</text>    
             </view>
         </view>
     </view>
@@ -36,19 +36,19 @@
     <!-- 中间部分信息 -->
     <view class="classes_content_1">
         <view class="classes_grade">
-            <text>适合年级：二年级</text>
+            <text>适合年级：{{ course_data.adapt_level }}</text>
         </view>
         <!-- 分割线 -->
         <view class="divide_info"></view>
         <view class="classes_time">
-            <text space="emsp">上课时间：每周二、五 六点到七点</text>
+            <text space="emsp">上课时间：{{ course_data.class_time }}</text>
         </view>
     </view>
 
     <!-- 下面部分信息 -->
     <view class="classes_content_2">
         <view class="classes_introduce">
-            <text space="emsp">  《高等数学》是太原理工大学数学学院基础教研部基础数学教研室承担的一门必修课程，开设时间为本科一年级。本课程基本内容主要包括函数、极限与连续，导数与微分，中值定理与导数的应用，不定积分，定积分，多元函数微积分学，无穷级数，微分方程等。高等数学是高等院校各专业学生重要的通识教育基础必修课、学位课和研究生入学考试课。</text>
+            <text space="emsp">  {{ course_data.class_info }}</text>
         </view>
     </view>
 

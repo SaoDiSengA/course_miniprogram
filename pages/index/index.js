@@ -18,53 +18,53 @@ Page({
         scrollLeft: 0, //tab标题的滚动条位置
     
         // 前端开发测试数据-家长端
-        all_data: [
-          {'name': '课程1', 'grade': '二年级', 'type': '音乐'},
-          {'name': '课程2', 'grade': '三年级', 'type': '体育'},
-          {'name': '课程3', 'grade': '四年级', 'type': '科学'},
-          {'name': '课程4', 'grade': '四年级', 'type': '科学'},
-          {'name': '课程5', 'grade': '四年级', 'type': '科学'},
-          {'name': '课程6', 'grade': '四年级', 'type': '科学'},
-        ],
-        music_data: [
-          {'name': '音乐课程1', 'grade': '二年级', 'type': '音乐'},
-          {'name': '音乐课程2', 'grade': '三年级', 'type': '音乐'},
-          {'name': '音乐课程3', 'grade': '四年级', 'type': '音乐'}
-        ],
-        sport_data: [
-          {'name': '体育课程1', 'grade': '二年级', 'type': '体育'},
-          {'name': '体育课程2', 'grade': '三年级', 'type': '体育'},
-          {'name': '体育课程3', 'grade': '四年级', 'type': '体育'}
-        ],
-        science_data: [
-          {'name': '科学课程1', 'grade': '二年级', 'type': '科学'},
-          {'name': '科学课程2', 'grade': '三年级', 'type': '科学'},
-          {'name': '科学课程3', 'grade': '四年级', 'type': '科学'}
-        ],
-        art_data: [
-          {'name': '美术课程1', 'grade': '二年级', 'type': '美术'},
-          {'name': '美术课程2', 'grade': '三年级', 'type': '美术'},
-          {'name': '美术课程3', 'grade': '四年级', 'type': '美术'}
-        ],
-        direct_data: [
-          {'name': '主持课程1', 'grade': '二年级', 'type': '主持'},
-          {'name': '主持课程2', 'grade': '三年级', 'type': '主持'},
-          {'name': '主持课程3', 'grade': '四年级', 'type': '主持'}
-        ],
-        dance_data: [
-          {'name': '舞蹈课程1', 'grade': '二年级', 'type': '舞蹈'},
-          {'name': '舞蹈课程2', 'grade': '三年级', 'type': '舞蹈'},
-          {'name': '舞蹈课程3', 'grade': '四年级', 'type': '舞蹈'}
-        ],
+        // all_data: [
+        //   {'name': '课程1', 'grade': '二年级', 'type': '音乐'},
+        //   {'name': '课程2', 'grade': '三年级', 'type': '体育'},
+        //   {'name': '课程3', 'grade': '四年级', 'type': '科学'},
+        //   {'name': '课程4', 'grade': '四年级', 'type': '科学'},
+        //   {'name': '课程5', 'grade': '四年级', 'type': '科学'},
+        //   {'name': '课程6', 'grade': '四年级', 'type': '科学'},
+        // ],
+        // music_data: [
+        //   {'name': '音乐课程1', 'grade': '二年级', 'type': '音乐'},
+        //   {'name': '音乐课程2', 'grade': '三年级', 'type': '音乐'},
+        //   {'name': '音乐课程3', 'grade': '四年级', 'type': '音乐'}
+        // ],
+        // sport_data: [
+        //   {'name': '体育课程1', 'grade': '二年级', 'type': '体育'},
+        //   {'name': '体育课程2', 'grade': '三年级', 'type': '体育'},
+        //   {'name': '体育课程3', 'grade': '四年级', 'type': '体育'}
+        // ],
+        // science_data: [
+        //   {'name': '科学课程1', 'grade': '二年级', 'type': '科学'},
+        //   {'name': '科学课程2', 'grade': '三年级', 'type': '科学'},
+        //   {'name': '科学课程3', 'grade': '四年级', 'type': '科学'}
+        // ],
+        // art_data: [
+        //   {'name': '美术课程1', 'grade': '二年级', 'type': '美术'},
+        //   {'name': '美术课程2', 'grade': '三年级', 'type': '美术'},
+        //   {'name': '美术课程3', 'grade': '四年级', 'type': '美术'}
+        // ],
+        // direct_data: [
+        //   {'name': '主持课程1', 'grade': '二年级', 'type': '主持'},
+        //   {'name': '主持课程2', 'grade': '三年级', 'type': '主持'},
+        //   {'name': '主持课程3', 'grade': '四年级', 'type': '主持'}
+        // ],
+        // dance_data: [
+        //   {'name': '舞蹈课程1', 'grade': '二年级', 'type': '舞蹈'},
+        //   {'name': '舞蹈课程2', 'grade': '三年级', 'type': '舞蹈'},
+        //   {'name': '舞蹈课程3', 'grade': '四年级', 'type': '舞蹈'}
+        // ],
         
         // 后端对接初始化数据-家长端
-        // all_data: [],
-        // music_data: [],
-        // sport_data: [],
-        // science_data: [],
-        // art_data: [],
-        // direct_data: [],
-        // dance_data: []
+        all_data: [],
+        music_data: [],
+        sport_data: [],
+        science_data: [],
+        art_data: [],
+        direct_data: [],
+        dance_data: []
 
         // 前端开发测试数据-老师端
         teacherId:2,
@@ -100,81 +100,94 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      const that=this; 
-      wx.request({
-        url: 'http://localhost:8080/fr_courseType/getTeachCourses', //仅为示例，并非真实的接口地址
-        method: 'get',
-        data: {
-          teacherId:that.data.teacherId,
-          teacherRole:that.data.teacherRole
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function(res){
-          console.log(res.data)
-          that.setData({
-            courseList:res.data,
-          })
-        }
+      // 将需要显示的页面的角色信息传入
+      this.setData({
+        user_rank: app.globalData.user_rank
       })
-        // 将需要显示的页面的角色信息传入
-        this.setData({
-            user_rank: app.globalData.user_rank
-        })
 
-        // let that = this;
-        //  高度自适应
+      // 老师端进行跳转
+      if(this.data.user_rank == 1){
+      	wx.request({
+	        url: 'http://localhost:8080/fr_courseType/getTeachCourses', //仅为示例，并非真实的接口地址
+	        method: 'get',
+	        data: {
+	          teacherId:that.data.teacherId,
+	          teacherRole:that.data.teacherRole
+	        },
+	        header: {
+	          'content-type': 'application/json' // 默认值
+	        },
+	        success: function(res){
+	          console.log(res.data)
+	          that.setData({
+	            courseList:res.data,
+	          })
+	        }
+	    })
+      }
+
+      // 家长端进行跳转
+      if (this.data.user_rank == 0) {
+      	//  高度自适应
         wx.getSystemInfo({
-        success: function (res) {
-            let calc = res.windowHeight; //顶部脱离文档流了(- res.windowWidth / 750 * 100);
-            // console.log('==顶部高度==',calc)
-            that.setData({
-            winHeight: calc
-            });
-        }
+	        success: function (res) {
+	        	//顶部脱离文档流了(- res.windowWidth / 750 * 100);
+	            let calc = res.windowHeight; 
+	            that.setData({
+	            	winHeight: calc
+	            });
+	        }
         });
 
         // 获取数据
-        // wx.request({
-        // url: 'http://localhost:8080/parents/homePage',
-        // method: "POST",
-        // header: {
-        //     'content-type': "application/x-www-form-urlencoded",
-        // },
-        // success(res) {
-        //     console.log(res)
-        //     // 获取返回状态码
-        //     var status = res.data.code
-        //     // 获取返回的全部课程数据
-        //     var all_data = res.data.data['0']
-        //     // 获取返回的音乐课程数据
-        //     var music_data = res.data.data["1"]
-        //     // 获取返回的体育课程数据
-        //     var sport_data = res.data.data["2"]
-        //     // 获取返回的科学课程数据
-        //     var science_data = res.data.data["3"]
-        //     // 获取返回的美术课程数据
-        //     var art_data = res.data.data["4"]
-        //     // 获取返回的主持课程数据
-        //     var direct_data = res.data.data["5"]
-        //     // 获取返回的舞蹈课程数据
-        //     var dance_data = res.data.data["6"]
-        //     if(status == 200){
-        //     that.setData({
-        //         'all_data': all_data,
-        //         "music_data": music_data,
-        //         "sport_data": sport_data,
-        //         "science_data": science_data,
-        //         "art_data": art_data,
-        //         "direct_data": direct_data,
-        //         "dance_data": dance_data
-        //     })
-        //     }
-        //     // 修改课程类型
-        //     change_course_type_to_string(all_data)
-        // }
-        // })
+        // 获取数据
+        wx.request({
+	        url: 'http://localhost:8080/parents/homePage',
+	        method: "POST",
+	        header: {
+	            'content-type': "application/x-www-form-urlencoded",
+	        },
+	        success(res) {
+	            console.log(res)
+	            // 获取返回状态码
+	            var status = res.data.code
+	            // 获取返回的全部课程数据
+	            var all_data = res.data.data['0']
+	            // 获取返回的音乐课程数据
+	            var music_data = res.data.data["1"]
+	            // 获取返回的体育课程数据
+	            var sport_data = res.data.data["2"]
+	            // 获取返回的科学课程数据
+	            var science_data = res.data.data["3"]
+	            // 获取返回的美术课程数据
+	            var art_data = res.data.data["4"]
+	            // 获取返回的主持课程数据
+	            var direct_data = res.data.data["5"]
+	            // 获取返回的舞蹈课程数据
+	            var dance_data = res.data.data["6"]
+	            if(status == 200){
+	              // 修改课程类型
+	              that.change_course_type_to_string(all_data)
+	              that.change_course_type_to_string(music_data)
+	              that.change_course_type_to_string(sport_data)
+	              that.change_course_type_to_string(science_data)
+	              that.change_course_type_to_string(art_data)
+	              that.change_course_type_to_string(direct_data)
+	              that.change_course_type_to_string(dance_data)
+	              // 传递数据
+	              that.setData({
+	                  'all_data': all_data,
+	                  "music_data": music_data,
+	                  "sport_data": sport_data,
+	                  "science_data": science_data,
+	                  "art_data": art_data,
+	                  "direct_data": direct_data,
+	                  "dance_data": dance_data
+	              })
+	            }
+        	}
+        })
+      }
     },
 
 
@@ -234,7 +247,19 @@ Page({
   },
 
   // 点击报名函数进行跳转
-  apply_click: function () {
+  apply_click: function (event) {
+    var course_name = event.currentTarget.id
+    wx.request({
+      url: 'http://localhost:8080/parents/queryCourse',
+      method: 'GET',
+      header: {
+        'content-type': "application/x-www-form-urlencoded",
+        'couresName': course_name
+      },
+      success(res){
+        app.globalData.course_data = res.data.data
+      }
+    })
     wx.navigateTo({
       url: '../classes_content/classes_content',
     })

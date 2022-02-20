@@ -10,8 +10,8 @@
         </view>
         
         <view class="user_info">
-            <view class="user_name">彭凯</view>
-            <view class="user_mobile_number">15319595933</view>
+            <view class="user_name">{{ user_name }}</view>
+            <view class="user_mobile_number">{{ user_mobile_number}}</view>
         </view>
 
         <view class="user_info_button" bindtap="check_user_info">
