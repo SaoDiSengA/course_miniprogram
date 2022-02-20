@@ -67,7 +67,8 @@ Page({
   },
   historySignin(){
     wx.navigateTo({
-      url: '/pages/history_signin/history_signin?id='+this.data.id,
+      url: '/pages/history_signin/history_signin?courseId=' + this.data.courseId
+      +'&schoolId='+this.data.schoolId+'&classId='+this.data.classId+'&className='+this.data.className+'&courseName='+this.data.courseName+'&teacherName='+this.data.teacherName+'&teacherRole='+this.data.teacherRole+'&teacherId='+this.data.teacherId+'&courseTime='+this.data.courseTime+'&startTime='+this.data.startTime+'&endTime='+this.data.endTime
     })
   },
   /**

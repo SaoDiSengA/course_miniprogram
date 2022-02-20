@@ -79,20 +79,20 @@ Page({
         startTime:'',
         endTime:'',
         courseList:[
-            {
-                // 'id':3,
-                // 'courseName':'数学课',
-                // 'courseTime':'周一、周二',
-                // 'className':'小班',
-                // 'img':'https://pengkai.online/courese_management/classes.png',
-                // courseId:'2',
-                // schoolId:'2',
-                // classId:'2',
-                // 'teacherName':'王老师',
-                // courseTime:'周一',
-                // startTime:'7:00:00',
-                // endTime:'8:00:00',
-            }
+            // {
+            //     // 'id':3,
+            //     // 'courseName':'数学课',
+            //     // 'courseTime':'周一、周二',
+            //     // 'className':'小班',
+            //     // 'img':'https://pengkai.online/courese_management/classes.png',
+            //     // courseId:'2',
+            //     // schoolId:'2',
+            //     // classId:'2',
+            //     // 'teacherName':'王老师',
+            //     // courseTime:'周一',
+            //     // startTime:'7:00:00',
+            //     // endTime:'8:00:00',
+            // }
         ]
     },
 
