@@ -73,7 +73,8 @@ Page({
             })
         }else {
             // 角色控制，0表示家长，1表示老师
-            // app.globalData.user_rank = 1
+            // app.globalData.user_rank = 0
+            // app.globalData.user_mobile_number = this.data.user_mobile_number
             // wx.switchTab({
             //   url: '../index/index',
             // })
@@ -93,6 +94,7 @@ Page({
                     console.log(res)
                     var status = res.data.code
                     var role = res.data.data.role
+                    var name = res.data.data.name
                     if (status == 400) {
                       wx.showModal({
                         title: '',
@@ -112,12 +114,16 @@ Page({
                     }else if(status == 200){
                       // 根据角色区分，跳转到不同的页面
                       if(role == 'parents'){
-                        wx.switchTab({
-                          url: '../index/index',
-                        })
-                      }else if(role == ''){
-
+                        app.globalData.user_rank = 0
+                      }else{
+                        app.globalData.user_rank = 1
                       }
+                      // 将用户手机号传入全局变量
+                      app.globalData.user_mobile_number = that.data.user_mobile_number
+                      app.globalData.user_name = name
+                      wx.switchTab({
+                        url: '../index/index',
+                      })
                     }
                   }
                 })
