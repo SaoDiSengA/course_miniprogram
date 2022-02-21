@@ -70,8 +70,7 @@ Page({
           'content-type': 'application/json' // 默认值
         },
         success: function(res){
-          console.log('hahah ')
-          console.log('hahah ')
+          console.log(res)
         }
       })
       for (let index = 0; index < this.data.imgs.length; index++) {
@@ -80,7 +79,7 @@ Page({
           name: 'file',
           url: 'http://localhost:8080/upload/picture',
           success:function(res){
-            console.log('hahah ')
+            // console.log('hahah ')
           }
         })
       }

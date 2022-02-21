@@ -38,7 +38,7 @@
 
         <!-- 作业内容 -->
         <view class="homework_context">
-            <text space="emsp">{{ hw_list.homeworkContent }}</text>
+            <text space="emsp" style="word-break: break-all;">{{ hw_list.homeworkContent }}</text>
         </view>
 </view>
 

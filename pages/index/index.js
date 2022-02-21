@@ -68,7 +68,7 @@ Page({
 
         // 前端开发测试数据-老师端
         teacherId:2,
-        teacherRole:1,
+        teacherRole:0,
         teacherName:'',
         courseName:'',
         className:'',
