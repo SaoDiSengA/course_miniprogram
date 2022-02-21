@@ -57,12 +57,23 @@ Page({
         },
         success(res){
           console.log(res.data)
-          // wx.requestPayment({
-          //   nonceStr: 'nonceStr',
-          //   package: 'package',
-          //   paySign: 'paySign',
-          //   timeStamp: 'timeStamp',
-          // })
+          var app_id = res.data.data.appId
+          var nonceStr = res.data.data.nonceStr
+          var orderId = res.data.data.orderId
+          var package = res.data.data.package
+          var paySign = res.data.data.paySign
+          var signType = res.data.data.signType
+          var timeStamp = res.data.data.timeStamp
+          wx.requestPayment({
+            "timeStamp": timeStamp,
+            "nonceStr": nonceStr,
+            "package": package,
+            "SignType": signType,
+            "paySign": paySign,
+            success(res){
+              console.log(res)
+            }
+          })
         }
       })
     }
