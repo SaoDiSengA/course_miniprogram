@@ -1,0 +1,109 @@
+/* pages/course_info/course_info.wxss */
+/* 我的已报名课程-进入课程 页面样式 */
+
+/* 页面整体样式 */
+.container{
+    padding: 0px;
+}
+
+/* 页面内容样式 */
+.course_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* 课程标题样式 */
+.course_title {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px #cccccc;
+}
+
+/* 提示信息样式 */
+.prompt_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px #cccccc;
+}
+
+/* 提示信息的分割线样式 */
+.divide_line {
+    /* width: 3px; */
+    margin-bottom: 5px;
+    border: 1px solid #dfdfdf;
+}
+
+/* 老师信息列表样式 */
+.course_teacher_list {
+    width: 90%;
+    margin-left: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+
+/* 单个老师信息样式 */
+.one_course_teacher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    height: 70px;
+    margin-left: 20px;
+    box-shadow: 0px 1px #dfdfdf;
+}
+
+/* 单个老师信息之头像样式 */
+.one_course_teacher_image {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+/* 单个老师信息之角色信息样式 */
+.one_course_teachewr_role {
+    margin-left: 10px;
+}
+
+/* 单个作业信息样式 */
+.one_course_homework {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #dfdfdf;
+}
+
+/* 单个作业信息样式之作业名称样式 */
+.course_homework_title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+/* 单个作业信息样式之作业相关信息样式 */
+.course_homework__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* 单个作业信息样式之作业状态样式 */
+.homework_status {
+    position: relative;
+    margin-left: 320px;
+    margin-top: -75px;
+}

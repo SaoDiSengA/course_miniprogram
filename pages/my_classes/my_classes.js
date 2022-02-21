@@ -65,4 +65,11 @@ Page({
             }
         }
     },
+
+    // 用户进入课程详情页面
+    join_click: function () {
+        wx.navigateTo({
+          url: '../course_info/course_info',
+        })
+    }
 })

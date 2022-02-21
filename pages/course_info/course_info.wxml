@@ -1,0 +1,78 @@
+<!--pages/course_info/course_info.wxml-->
+<!-- 我的已报名课程-进入课程界面 -->
+
+<view class="container">
+    <!-- 我的已报名课程-课程详细信息 -->
+    <view class="course_content">
+        <!-- 课程名称 -->
+        <view class="course_title">
+            <text style="font-size: large; margin-left: 10px;">{{ course_title }}</text>
+        </view>
+
+        <!-- 提示信息 -->
+        <view class="prompt_info">
+            <!-- 班级老师提示信息 -->
+            <view class="course_teacher" bindtap="check_teacher">
+                <text style="font-size: large;color: {{ teahcer_font_color }};">班级老师</text>
+            </view>
+            <!-- 分割线 -->
+            <view class="divide_line"></view>
+            <!-- 班级作业提示信息 -->
+            <view class="course_homework" bindtap="check_homework">
+                <text style="font-size: large;color: {{ homework_font_color }};">班级作业</text>
+            </view>
+        </view>
+
+        <!-- 班级老师信息 -->
+        <view class="course_teacher_list" wx:if="{{ selected_teacher==1 }}">
+            <!-- 单个老师信息 -->
+            <view class="one_course_teacher" wx:for="{{ course_teahcers }}" wx:for-item="course_teacher">
+                <!-- 老师头像信息 -->
+                <image src="/icons/default_head_image.png" class="one_course_teacher_image"></image>
+                <!-- 老师角色信息 -->
+                <view class="one_course_teachewr_role">
+                    <text>{{ course_teacher.role }}：</text>
+                </view>
+                <!-- 老师姓名信息 -->
+                <view class="one_course_teacher_name">
+                    <text>{{ course_teacher.name }}</text>
+                </view>
+            </view>
+        </view>
+
+        <!-- 班级作业信息 -->
+        <view class="course_homework_list" wx:if="{{ selected_homework==1 }}">
+            <!-- 单个作业信息 -->
+            <view class="one_course_homework" id="{{ course_homework.name }}" wx:for="{{ course_homeworks }}" wx:for-item="course_homework" bindtap="check_homework_content">
+                <!-- 课程名称信息 -->
+                <view class="course_homework_title">
+                    <text>{{ course_homework.name }}</text>
+                </view>
+                <!-- 课程相关信息 -->
+                <view class="course_homework__info">
+                    <!-- 作业来源信息 -->
+                    <view class="course_homework_info_origin">
+                        <text>来自：{{ course_homework.origin }}</text>
+                    </view>
+                    <!-- 作业班级信息 -->
+                    <view class="course_homework_info_class">
+                        <text>班级：{{ course_homework.classes }}</text>
+                    </view>
+                    <!-- 作业时间信息 -->
+                    <view>
+                        <text>{{ course_homework.time }}</text>
+                    </view>
+                </view>
+                <!-- 作业横幅样式 -->
+                <view class="homework_status" wx:if="{{ course_homework.status==1 }}">
+                    <image src="/icons/has_read.png" style="width: 55px;height: 55px;"></image>
+                </view>
+                <view class="homework_status" wx:if="{{ course_homework.status==0 }}">
+                    <image src="/icons/has_not_read.png" style="width: 55px;height: 55px;"></image>
+                </view>
+            </view>
+        </view>
+    
+    </view>
+
+</view>

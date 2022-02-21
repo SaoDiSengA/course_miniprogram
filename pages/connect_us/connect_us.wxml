@@ -4,7 +4,7 @@
 <view class="container">
 
     <view class="telphone_number">
-        0351-8888888
+        <text>{{ our_mobile_number }}</text>
     </view>
 
 
