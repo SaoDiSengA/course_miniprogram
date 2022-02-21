@@ -1,0 +1,14 @@
+<!--pages/quesition_content/quesition_content.wxml-->
+<!-- 帮助中心-问题详情界面 -->
+
+<view class="container">
+
+    <view class="quesition_title">
+        <text style="font-size: large;">{{ quesition_title }}</text>
+    </view>
+
+    <view class="quesition_content">
+        <text style="font-size: medium;" space="ensp">  {{ quesition_content }}</text>
+    </view>
+
+</view>

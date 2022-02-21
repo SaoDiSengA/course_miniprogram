@@ -105,6 +105,8 @@ Page({
         user_rank: app.globalData.user_rank
       })
 
+      console.log(this.data.user_rank)
+
       // 老师端进行跳转
       if(this.data.user_rank == 1){
         var that = this
@@ -129,6 +131,9 @@ Page({
 
       // 家长端进行跳转
       if (this.data.user_rank == 0) {
+      	// 修改对象作用域
+      	var that = this
+
       	//  高度自适应
         wx.getSystemInfo({
 	        success: function (res) {
@@ -253,16 +258,18 @@ Page({
     wx.request({
       url: 'http://localhost:8080/parents/queryCourse',
       method: 'GET',
+      data: {
+      	'couresName': course_name
+      },
       header: {
-        'content-type': "application/x-www-form-urlencoded",
-        'couresName': course_name
+        'content-type': "application/x-www-form-urlencoded"
       },
       success(res){
         app.globalData.course_data = res.data.data
+        wx.navigateTo({
+      		url: '../classes_content/classes_content',
+    	})
       }
-    })
-    wx.navigateTo({
-      url: '../classes_content/classes_content',
     })
   },
 
