@@ -14,10 +14,10 @@
             <!-- 课程名称及价格 -->
             <view class="classes_content">
                 <view class="classes_name">
-                    <text style="font-size: large;">高等数学</text>
+                    <text style="font-size: large;">{{ course_info.title }}</text>
                 </view>
                 <view class="classes_price">
-                    <text style="font-size: large;">费用：2980</text>
+                    <text style="font-size: large;">费用：{{course_info.price}}</text>
                 </view>
             </view>
         </view>
@@ -31,7 +31,7 @@
                 <text>费用合计：</text>
             </view>
             <view class="prices">
-                <text space="ensp">￥ 2980</text>
+                <text space="ensp">￥ {{ course_info.price }}</text>
             </view>
         </view>
     </view>
