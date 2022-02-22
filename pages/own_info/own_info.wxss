@@ -1,0 +1,95 @@
+/* pages/own_info/own_info.wxss */
+
+/* 我的个人信息页面样式布局 */
+
+/* 整体页面样式 */
+.container {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部信息样式 */
+.basic_info {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    background-color: #7576ff;
+}
+
+/* 文字信息样式 */
+.text_info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+/* 姓名信息样式 */
+.user_name_info {
+    margin-bottom: 5px;
+}
+
+/* 学校信息样式 */
+.school_info {
+    margin-top: 5px;
+}
+
+/* 图像信息样式 */
+.head_image_info{
+    margin-top: 35px;
+    margin-left: 80px;
+}
+
+/* 头像样式 */
+.head_image {
+    width: 80px;
+    height: 80px;
+}
+
+/* 下面部分(列表)信息样式 */
+.other_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 单个信息样式 */
+.one_info {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* 提示信息样式 */
+.prompt_info {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+/* 用户真实值信息样式 */
+.info_value {
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+/* 分割线样式 */
+.divide_line {
+    border: 1px solid #d6d6d6;
+}
+
+/* 确认修改按钮 */
+.submit_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background: rgba(103, 134, 255, 0.9);
+    height:50px;
+    border-radius: 50px;
+    margin-top: 30px;
+}

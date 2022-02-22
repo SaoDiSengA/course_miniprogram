@@ -24,4 +24,11 @@ Page({
         })
     },
 
+    // 点击跳转到个人信息页面
+    check_user_info: function () {
+        wx.navigateTo({
+          url: '../own_info/own_info',
+        })
+    }
+
 })

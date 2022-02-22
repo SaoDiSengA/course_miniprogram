@@ -1,0 +1,73 @@
+<!--pages/own_info/own_info.wxml-->
+<!-- 我的个人信息页面 -->
+
+<view class="container">
+
+    <!-- 上部分信息 -->
+    <view class="basic_info">
+        <!-- 姓名、所属学校信息 -->
+        <view class="text_info">
+            <!-- 姓名信息 -->
+            <view class="user_name_info">
+                <text style="font-size: larger;color: #ffffff;">{{ user_name }}</text>
+            </view>
+            <!-- 学校信息 -->
+            <view class="school_info">
+                <text style="color: #ffffff;">{{ school_name }}/{{ grade }}</text>
+            </view>
+        </view>
+        <!-- 头像信息 -->
+        <view class="head_image_info">
+            <image class="head_image" src="https://pengkai.online/courese_management/head_portrait.png"></image>
+        </view>
+    </view>
+
+    <!-- 下部分信息 -->
+    <view class="other_info">
+        <!-- 学籍信息 -->
+        <view class="one_info">
+            <!-- 提示信息 -->
+            <view class="prompt_info">
+                <text>学籍号</text>
+            </view>
+            <!-- 用户的真实信息 -->
+            <view class="info_value">
+                <input value="{{ id_number }}" bindinput="input_id_number"></input>
+            </view>
+        </view>
+        <!-- 分割线 -->
+        <view class="divide_line"></view>
+        <!-- 姓名信息 -->
+        <view class="one_info">
+            <!-- 提示信息 -->
+            <view class="prompt_info">
+                <text>真实姓名</text>
+            </view>
+            <!-- 用户的真实信息 -->
+            <view class="info_value">
+                <input value="{{ user_name }}" bindinput="input_user_name"></input>
+            </view>
+        </view>
+        <!-- 分割线 -->
+        <view class="divide_line"></view>
+        <!-- 手机号码信息 -->
+        <view class="one_info">
+            <!-- 提示信息 -->
+            <view class="prompt_info">
+                <text>手机号码</text>
+            </view>
+            <!-- 用户的真实信息 -->
+            <view class="info_value">
+                <input value="{{ mobile_number }}" bindinput="input_mobile_number"></input>
+            </view>
+        </view>
+        <!-- 分割线 -->
+        <view class="divide_line"></view>
+    </view>
+
+     <!-- 确认修改按钮 -->
+     <view class="submit_info" bindtap="submit_click">
+        <text style="color:white; font-size: 25px;" space="emsp" >确认修改</text>
+    </view>
+
+</view>

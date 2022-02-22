@@ -2,6 +2,7 @@
   "pages":[
     "pages/login/login",
     "pages/own/own",
+    "pages/own_info/own_info",
     "pages/index/index",
     "pages/register/register",
     "pages/find_password/find_password",

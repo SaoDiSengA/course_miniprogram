@@ -2,7 +2,7 @@
 
 // 获取APP的全局变量值
 var app = getApp()
-console.log(app.globalData)
+// console.log(app.globalData)
 var util = require('../../utils/util.js')
 
 Page({
@@ -56,25 +56,26 @@ Page({
           'detail': course_info.title,
         },
         success(res){
-          console.log(res.data)
-          var app_id = res.data.data.appId
-          var nonceStr = res.data.data.nonceStr
-          var orderId = res.data.data.orderId
-          var package = res.data.data.package
-          var paySign = res.data.data.paySign
-          var signType = res.data.data.signType
-          var timeStamp = res.data.data.timeStamp
+          console.log(res.data.data)
+          console.log('awdasd')
           wx.requestPayment({
-            "timeStamp": timeStamp,
-            "nonceStr": nonceStr,
-            "package": package,
-            "SignType": signType,
-            "paySign": paySign,
-            success(res){
+            nonceStr: res.data.data.nonceStr,
+            package: res.data.data.package,
+            signType:'MD5',
+            paySign: res.data.data.sign,
+            timeStamp: res.data.data.timeStamp,
+            "success":function(res){
               console.log(res)
-            }
+            },
+            "fail":function(res){
+              console.log(res)
+            },
+"complete":function(res){
+  console.log(res)
+}
           })
+          
         }
       })
-    }
+    } 
 })
