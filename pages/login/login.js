@@ -11,6 +11,8 @@ Page({
     data: {
         user_mobile_number: null,
         user_password: null,
+        teacherId:'',
+        teacherRole:''
     },
 
     /**
@@ -92,8 +94,26 @@ Page({
                   },
                   success(res) {
                     console.log(res)
+                    console.log(res.data.data.role)
+                    console.log(res.data.data.id)
                     var status = res.data.code
                     var role = res.data.data.role
+                    if (res.data.data.role=="teacher_manage"){
+                      that.setData({
+                        teacherRole:0
+                      })
+                    }
+                    
+                    if (res.data.data.role=="teacher_teache"){
+                      that.setData({
+                        teacherRole:1
+                      })
+                    }
+                    that.setData({
+                      teacherId:res.data.data.id
+                    })
+                    console.log(that.data.teacherRole)
+                    console.log(that.data.teacherId)
                     var name = res.data.data.name
                     if (status == 400) {
                       wx.showModal({
@@ -121,6 +141,8 @@ Page({
                       // 将用户手机号传入全局变量
                       app.globalData.user_mobile_number = that.data.user_mobile_number
                       app.globalData.user_name = name
+                      app.globalData.teacherId = that.data.teacherId
+                      app.globalData.teacherRole = that.data.teacherRole
                       wx.switchTab({
                         url: '../index/index',
                       })

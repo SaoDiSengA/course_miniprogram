@@ -8,6 +8,7 @@ Page({
    */
   data: {
     imgs_name:[],
+    imgs_uuid:[],
     postTime:'',
     imgs: [],
     date: '',
@@ -51,38 +52,56 @@ Page({
         duration: 2000//持续的时间
       })
     }else{
-      wx.request({
-        url: 'http://localhost:8080/homework_new/homework_new', //仅为示例，并非真实的接口地址
-        method: 'post',
-        data: {
-          courseId:this.data.courseId,
-          classId:this.data.classId,
-          teacherId:this.data.teacherId,
-          role:this.data.teacherRole,
-          courseTime:this.data.courseTime,
-          teacherName:this.data.teacherName,
-          courseName:this.data.courseName,
-          postTime:this.data.postTime,
-          content:this.data.content,
-          imgs:this.data.imgs_name
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function(res){
-          console.log(res)
-        }
-      })
+      var that = this;
       for (let index = 0; index < this.data.imgs.length; index++) {
         wx.uploadFile({
           filePath: this.data.imgs[index],
           name: 'file',
           url: 'http://localhost:8080/upload/picture',
           success:function(res){
-            // console.log('hahah ')
+
+            console.log(res);
+            let a = JSON.parse(res.data)
+            console.log(a.filename);
+            // that.data.imgs_uuid.push(a.filename)
+            that.setData({
+              // ['that.data.imgs_uuid['+index+']']:JSON.parse(res.data).filename
+              imgs_uuid:that.data.imgs_uuid.concat(a.filename)
+            })
+            console.log(that.data.imgs_uuid);
+            // console.log("fdgfd"+that.data.imgs_uuid[index])
+            // this.data.imgs_uuid.push(JSON.parse(res.data).filename)
+            if(that.data.imgs.length==(index+1)){
+              wx.request({
+                url: 'http://localhost:8080/homework_new/homework_new', //仅为示例，并非真实的接口地址
+                method: 'post',
+                data: {
+                  courseId:that.data.courseId,
+                  classId:that.data.classId,
+                  teacherId:that.data.teacherId,
+                  role:that.data.teacherRole,
+                  courseTime:that.data.courseTime,
+                  teacherName:that.data.teacherName,
+                  courseName:that.data.courseName,
+                  postTime:that.data.postTime,
+                  content:that.data.content,
+                  imgs:that.data.imgs_uuid,
+                },
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success: function(res){
+                  console.log(res)
+                }
+              })
+            }
           }
         })
       }
+
+      
+      console.log(that.imgs_uuid)
+
       wx.navigateBack({
         delta: 2,
       })

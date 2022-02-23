@@ -67,8 +67,10 @@ Page({
         dance_data: [],
 
         // 前端开发测试数据-老师端
-        teacherId:2,
-        teacherRole:0,
+        // teacherId:2,
+        // teacherRole:0,
+        teacherId:'',
+        teacherRole:'',
         teacherName:'',
         courseName:'',
         className:'',
@@ -79,20 +81,6 @@ Page({
         startTime:'',
         endTime:'',
         courseList:[
-            // {
-            //     // 'id':3,
-            //     // 'courseName':'数学课',
-            //     // 'courseTime':'周一、周二',
-            //     // 'className':'小班',
-            //     // 'img':'https://pengkai.online/courese_management/classes.png',
-            //     // courseId:'2',
-            //     // schoolId:'2',
-            //     // classId:'2',
-            //     // 'teacherName':'王老师',
-            //     // courseTime:'周一',
-            //     // startTime:'7:00:00',
-            //     // endTime:'8:00:00',
-            // }
         ]
     },
 
@@ -102,7 +90,9 @@ Page({
     onLoad: function (options) {
       // 将需要显示的页面的角色信息传入
       this.setData({
-        user_rank: app.globalData.user_rank
+        user_rank: app.globalData.user_rank,
+        teacherId:app.globalData.teacherId,
+        teacherRole:app.globalData.teacherRole
       })
 
       console.log(this.data.user_rank)

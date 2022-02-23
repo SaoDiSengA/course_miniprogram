@@ -18,6 +18,8 @@ App({
     user_mobile_number: null,
     user_name: null,
     user_rank: null,
-    userInfo: null
+    userInfo: null,
+    teacherId:'',
+    teacherRole:''
   }
 })
