@@ -18,16 +18,34 @@
 
         <!-- 学校信息 -->
         <view class="school_info">
-            <view class="prompt_info">学校名称:</view>
-            <input class="input_info" placeholder="请输入学校名称" placeholder-style="color:#cccccc;" bindinput="school_name_input"></input>
+            <view class="school_prompt_info">学校名称:</view>
+            <!-- 下拉框 -->
+            <view class='select_box'>
+                <view class='select' catchtap='school_selectTaps'>
+                    <text class='select_text'>{{school_data[school_index]}}</text>
+                    <image class='select_img {{school_shows&&"select_img_rotate"}}' src='/icons/selected.png'></image>
+                </view>
+                <view class='option_box' style='height:{{school_shows?(school_data.length>5?300:school_data.length*60):0}}rpx;'>
+                    <text class='option' style='{{school_index==school_data.length-1&&"border:0;"}}' wx:for='{{school_data}}' wx:key='this' data-index='{{index}}' catchtap='school_optionTaps'>{{item}}</text>
+                </view>
+            </view>
         </view>
 
         <!-- 年级信息 -->
-        <view class="user_info">
-            <view class="prompt_info">
+        <view class="grade_info">
+            <view class="grade_prompt_info">
                 <text space="emsp">年  级:</text>
             </view>
-            <input class="input_info" placeholder="请输入年级" placeholder-style="color:#cccccc;" bindinput="grade_input"></input>
+            <!-- 下拉框 -->
+            <view class='select_box'>
+                <view class='select' catchtap='grade_selectTaps'>
+                    <text class='select_text'>{{grades[grade_index]}}</text>
+                    <image class='select_img {{grade_shows&&"select_img_rotate"}}' src='/icons/selected.png'></image>
+                </view>
+                <view class='option_box' style='height:{{grade_shows?(grades.length>5?300:grades.length*60):0}}rpx;'>
+                    <text class='option' style='{{grade_index==grades.length-1&&"border:0;"}}' wx:for='{{grades}}' wx:key='this' data-index='{{index}}' catchtap='grade_optionTaps'>{{item}}</text>
+                </view>
+            </view>
         </view>
 
         <!-- 学籍信息 -->

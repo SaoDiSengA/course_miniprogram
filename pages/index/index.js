@@ -12,7 +12,7 @@ Page({
      */
     data: {
         user_rank: null,
-        tabbar: ["全部", "音乐", "体育", "科学", "美术", "主持", "舞蹈"],
+        tabbar: ["全部", "科学"],
         winHeight: "", //窗口高度
         currentTab: 0, //预设当前项的值
         scrollLeft: 0, //tab标题的滚动条位置

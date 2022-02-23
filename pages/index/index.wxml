@@ -20,32 +20,32 @@
             <scroll-view scroll-y class="scoll-y">
                 <!-- 全部内容 -->
                 <block wx:if="{{index==0}}">
-                <include src="../all_content/all_content"></include>
+                	<include src="../all_content/all_content"></include>
                 </block>
                 <!-- 音乐内容 -->
-                <block wx:if="{{index==1}}">
-                <include src="../music_content/music_content"></include>
-                </block>
+                <!-- <block wx:if="{{index==1}}">
+                	<include src="../music_content/music_content"></include>
+                </block> -->
                 <!-- 体育内容 -->
-                <block wx:if="{{index==2}}">
-                <include src="../sport_content/sport_content"></include>
-                </block>
+                <!-- <block wx:if="{{index==2}}">
+                	<include src="../sport_content/sport_content"></include>
+                </block> -->
                 <!-- 科学内容 -->
                 <block wx:if="{{index==3}}">
-                <include src="../science_content/science_content"></include>
+                	<include src="../science_content/science_content"></include>
                 </block>
                 <!-- 美术内容 -->
-                <block wx:if="{{index==4}}">
-                <include src="../art_content/art_content"></include>
-                </block>
+                <!-- <block wx:if="{{index==4}}">
+                    <include src="../art_content/art_content"></include>
+                </block> -->
                 <!-- 主持内容 -->
-                <block wx:if="{{index==5}}">
-                <include src="../direct_content/direct_content"></include>
-                </block>
+                <!-- <block wx:if="{{index==5}}">
+                	<include src="../direct_content/direct_content"></include>
+                </block> -->
                 <!-- 舞蹈内容 -->
-                <block wx:if="{{index==6}}">
-                <include src="../dance_content/dance_content"></include>
-                </block>
+                <!-- <block wx:if="{{index==6}}">
+                	<include src="../dance_content/dance_content"></include>
+                </block> -->
             </scroll-view>
             </swiper-item>
         </swiper>

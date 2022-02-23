@@ -7,9 +7,23 @@ Page({
     data: {
         // 头像地址
         head_image: null,
-        // 学校名称
-        shcool_name: null,
-        // 年级
+        // 控制下拉列表的显示隐藏，false隐藏、true显示
+        school_shows: false,
+        // 学校的id信息
+        school_ids: null,
+        // 学校下拉列表的数据
+        school_data: ['阳泉市平定县实验小学', '阳泉市平定县第二实验小学校', '阳泉市平定县东关小学校'],
+        // 选择的下拉列表下标
+        school_index: 0,
+        // 控制下拉列表的显示隐藏，false隐藏、true显示
+        grade_shows: false,
+        // 年级下拉列表的数据
+        grades: ['三年级', '四年级', '五年级'],
+        // 选择的年级下拉列表下标
+        grade_index: 0,
+        // 学校的id信息
+        school_id: null,
+        // 年级信息
         grade: null,
         // 学籍号
         id_number: null,
@@ -33,7 +47,34 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+        // 获取学校名称和id
+        var that = this
+        wx.request({
+          url: 'http://localhost:8080/parents/getSchoolName',
+          method: 'POST',
+          header: {
+            'content-type': "application/x-www-form-urlencoded"
+          },
+          success(res){
+            var school_infos = res.data.data
+            that.handle_school_info(school_infos)
+          }
+        })
+    },
+
+    // 处理返回的学校信息
+    handle_school_info: function (data) {
+        var that = this
+        var school_ids = []
+        var school_names = []
+        for (let index = 0; index < array.length; index++) {
+            school_ids.push(data[index]['id'])
+            school_names.push(data[index]['name'])
+        }
+        that.setData({
+            school_ids: school_ids,
+            school_data: school_names
+        })
     },
 
     // 上传用户头像
@@ -60,18 +101,44 @@ Page({
     },
 
     // 获取输入信息的各个函数
-    // 学校名称
-    school_name_input: function (event) {
+
+    // 点击下拉显示框-学校
+    school_selectTaps() {
         this.setData({
-            shcool_name: event.detail.value
-        })
+            school_shows: !this.data.school_shows,
+        });
     },
 
-    // 年级
-    grade_input: function (event) {
+    // 点击学校的下拉列表
+    school_optionTaps(e) {
+        let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+        var school_ids = this.data.school_ids
+        var id = Indexs + 1
+        console.log(Indexs)
         this.setData({
-            grade: event.detail.value
-        })
+            school_index: Indexs,
+            school_shows: !this.data.school_shows,
+            school_id: school_ids[id]
+        });
+    },
+
+    // 点击下拉显示框-年级
+    grade_selectTaps() {
+        this.setData({
+            grade_shows: !this.data.grade_shows,
+        });
+    },
+
+    // 点击年级的下拉列表
+    grade_optionTaps(e) {
+        var grade_data = this.data.grades
+        let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+        console.log(Indexs)
+        this.setData({
+            grade_index: Indexs,
+            grade_shows: !this.data.grade_shows,
+            grade: grade_data[Indexs]
+        });
     },
 
     // 学籍信息
@@ -227,7 +294,7 @@ Page({
                       method: "POST",
                       header: {
                         'content-type': "application/x-www-form-urlencoded",
-                        'school_id': this.data.shcool_name,
+                        'school_id': this.data.shcool_id,
                         'grade': this.data.grade,
                         'account': this.data.id_number,
                         'name': this.data.name,
