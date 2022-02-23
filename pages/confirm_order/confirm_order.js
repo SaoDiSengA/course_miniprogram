@@ -43,6 +43,8 @@ Page({
     pay_click: function () {
       // 获取课程详情
       var course_info = this.data.course_info
+      // 获取用户手机号码
+      var mobile_number = app.globalData.user_mobile_number
       // 获取openId
       var open_id = this.data.open_id
       wx.request({
@@ -54,6 +56,7 @@ Page({
         data: {
           'openid': open_id,
           'detail': course_info.title,
+          'phone': mobile_number
         },
         success(res){
           console.log(res.data.data)
@@ -70,9 +73,9 @@ Page({
             "fail":function(res){
               console.log(res)
             },
-"complete":function(res){
-  console.log(res)
-}
+			"complete":function(res){
+			  console.log(res)
+			}
           })
           
         }
