@@ -307,7 +307,7 @@ Page({
                       method: "POST",
                       header: {
                         'content-type': "application/x-www-form-urlencoded",
-                        'school_id': this.data.shcool_id,
+                        'school_id': this.data.school_id,
                         'grade': this.data.grade,
                         'account': this.data.id_number,
                         'name': this.data.name,
