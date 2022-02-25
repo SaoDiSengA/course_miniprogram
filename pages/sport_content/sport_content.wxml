@@ -15,7 +15,7 @@
                 <view class="classes_name">{{ one_data.name }}</view>
                 <view class="classes_grade" style="color: #958f8f;">适合：{{ one_data.adapt_level }}</view>
                 <view class="classes_type" style="color: #958f8f;">分类：{{ one_data.type }}</view>
-                <view class="apply_button" id="{{ one_data.name }}" bindtap="apply_click">
+                <view class="apply_button" id="{{ one_data.id }}" bindtap="apply_click">
                     <text style="color: white;">立即报名</text>
                 </view>
             </view>

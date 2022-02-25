@@ -75,6 +75,8 @@ Page({
             school_ids: school_ids,
             school_data: school_names
         })
+        console.log(that.data.school_ids)
+        console.log(that.data.school_data)
     },
 
     // 上传用户头像
@@ -113,7 +115,7 @@ Page({
     school_optionTaps(e) {
         let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
         var school_ids = this.data.school_ids
-        var id = Indexs + 1
+        var id = Indexs
         console.log(Indexs)
         this.setData({
             school_index: Indexs,
@@ -131,14 +133,17 @@ Page({
 
     // 点击年级的下拉列表
     grade_optionTaps(e) {
+        console.log('年级信息')
+        var that = this
         var grade_data = this.data.grades
         let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
         console.log(Indexs)
-        this.setData({
+        that.setData({
             grade_index: Indexs,
-            grade_shows: !this.data.grade_shows,
+            grade_shows: !that.data.grade_shows,
             grade: grade_data[Indexs]
         });
+        console.log(that.data.grade)
     },
 
     // 学籍信息
@@ -258,9 +263,16 @@ Page({
 
     // 注册页面跳转
     register_click: function () {
-        if (this.data.shcool_id == '' || this.data.shcool_id == null ||
-            this.data.grade == '' || this.data.grade == null ||
-            this.data.id_number == '' || this.data.id_number == null ||
+    	console.log('注册页面')
+        console.log(this.data.school_id)
+        console.log(this.data.grade)
+        console.log(this.data.id_number)
+        console.log(this.data.name)
+        console.log(this.data.mobile_number)
+        console.log(this.data.check_number)
+        console.log(this.data.password)
+        console.log(this.data.again_password)
+        if (this.data.id_number == '' || this.data.id_number == null ||
             this.data.name == '' || this.data.name == null ||
             this.data.mobile_number == '' || this.data.mobile_number == null ||
             this.data.check_number == '' || this.data.check_number == null ||

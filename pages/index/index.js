@@ -244,12 +244,12 @@ Page({
 
   // 点击报名函数进行跳转
   apply_click: function (event) {
-    var course_name = event.currentTarget.id
+    var course_id = event.currentTarget.id
     wx.request({
       url: 'http://localhost:8080/parents/queryCourse',
       method: 'GET',
       data: {
-      	'couresName': course_name
+      	'course_id': course_id
       },
       header: {
         'content-type': "application/x-www-form-urlencoded"
