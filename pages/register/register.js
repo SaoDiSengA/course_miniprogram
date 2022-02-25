@@ -67,7 +67,7 @@ Page({
         var that = this
         var school_ids = []
         var school_names = []
-        for (let index = 0; index < array.length; index++) {
+        for (let index = 0; index < data.length; index++) {
             school_ids.push(data[index]['id'])
             school_names.push(data[index]['name'])
         }
@@ -258,7 +258,7 @@ Page({
 
     // 注册页面跳转
     register_click: function () {
-        if (this.data.shcool_name == '' || this.data.shcool_name == null ||
+        if (this.data.shcool_id == '' || this.data.shcool_id == null ||
             this.data.grade == '' || this.data.grade == null ||
             this.data.id_number == '' || this.data.id_number == null ||
             this.data.name == '' || this.data.name == null ||
