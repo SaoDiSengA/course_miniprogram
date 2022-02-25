@@ -1,4 +1,11 @@
 // pages/register/register.js
+
+// 获取APP的全局变量值
+var app = getApp()
+console.log(app.globalData)
+var util = require('../../utils/util.js')
+
+
 Page({
 
     /**
@@ -320,6 +327,7 @@ Page({
                             var status = res.data.code
                             var message = res.data.message
                             if(status == 200){
+                            	app.globalData.user_rank = 0
                                 wx.switchTab({
                                   url: '../index/index',
                                 })
