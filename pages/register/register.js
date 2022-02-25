@@ -19,6 +19,8 @@ Page({
         grade_shows: false,
         // 年级下拉列表的数据
         grades: ['三年级', '四年级', '五年级'],
+        // 年级的ID数据
+        grade_ids: [3, 4, 5],
         // 选择的年级下拉列表下标
         grade_index: 0,
         // 学校的id信息
@@ -133,15 +135,14 @@ Page({
 
     // 点击年级的下拉列表
     grade_optionTaps(e) {
-        console.log('年级信息')
         var that = this
-        var grade_data = this.data.grades
+        var grade_ids = this.data.grade_ids
         let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
         console.log(Indexs)
         that.setData({
             grade_index: Indexs,
-            grade_shows: !that.data.grade_shows,
-            grade: grade_data[Indexs]
+            grade_shows: !this.data.grade_shows,
+            grade: grade_ids[Indexs]
         });
         console.log(that.data.grade)
     },
