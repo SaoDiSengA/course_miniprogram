@@ -44,7 +44,7 @@ Page({
       var nums = data.split(',')
       var strings = []
       for(let index = 0; index < nums.length; index++){
-        var num = nums[i]
+        var num = nums[index]
         if (num == '1') {
           strings.push('星期一')
         }else if(num == '2'){
