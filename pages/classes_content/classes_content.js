@@ -32,17 +32,17 @@ Page({
 
     // 计算开始时间
     calculate_one_day_time: function(data){
-      times = data.split(':')
-      hour = times[0]
-      minute = times[1]
+      var times = data.split(':')
+      var hour = times[0]
+      var minute = times[1]
       var time = hour + ':' + minute
       return time
     },
 
     // 建立数字-星期的映射关系
     change_num_to_string: function(data){
-      nums = data.split(',')
-      strings = []
+      var nums = data.split(',')
+      var strings = []
       for(let index = 0; index < nums.length; index++){
         var num = nums[i]
         if (num == '1') {
