@@ -136,12 +136,14 @@ Page({
         });
 
         // 获取数据
+        var school_id = app.globalData.school_id
         // 获取数据
         wx.request({
 	        url: 'http://localhost:8080/parents/homePage',
 	        method: "POST",
 	        header: {
 	            'content-type': "application/x-www-form-urlencoded",
+              	'school_id': school_id
 	        },
 	        success(res) {
 	            console.log(res)
@@ -245,11 +247,13 @@ Page({
   // 点击报名函数进行跳转
   apply_click: function (event) {
     var course_id = event.currentTarget.id
+    var school_id = app.globalData.school_id
     wx.request({
       url: 'http://localhost:8080/parents/queryCourse',
       method: 'GET',
       data: {
       	'course_id': course_id
+        'school_id': school_id
       },
       header: {
         'content-type': "application/x-www-form-urlencoded"

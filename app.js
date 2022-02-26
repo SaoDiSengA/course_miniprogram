@@ -14,6 +14,8 @@ App({
     })
   },
   globalData: {
+  	student_id: null,
+  	school_id: null,
     course_data: null,
     user_mobile_number: null,
     user_name: null,

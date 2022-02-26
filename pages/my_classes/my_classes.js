@@ -34,7 +34,7 @@ Page({
             method: 'POST',
             header: {
                 'content-type': "application/x-www-form-urlencoded",
-                'phone': app.globalData.user_mobile_number
+                'student_id': app.globalData.student_id
             },
             success(res) {
             	// 获取返回的已报名课程数据

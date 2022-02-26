@@ -115,6 +115,8 @@ Page({
                     console.log(that.data.teacherRole)
                     console.log(that.data.teacherId)
                     var name = res.data.data.name
+                    var student_id = res.data.data.id
+                    var school_id = res.data.data.school_id
                     if (status == 400) {
                       wx.showModal({
                         title: '',
@@ -140,6 +142,11 @@ Page({
                       }
                       // 将用户手机号传入全局变量
                       app.globalData.user_mobile_number = that.data.user_mobile_number
+                      // 将学生的ID传入全局变量
+                      app.globalData.student_id = student_id
+                      // 将学校的ID传入全局变量
+                      app.globalData.school_id = school_id
+                      // 将用户名称传入全局变量
                       app.globalData.user_name = name
                       app.globalData.teacherId = that.data.teacherId
                       app.globalData.teacherRole = that.data.teacherRole
