@@ -47,5 +47,5 @@
 .img{
   margin-top: 40rpx;
   /* margin-left: 280rpx; */
-  margin-left: 380rpx;
+  margin-left: 300rpx;
 }
