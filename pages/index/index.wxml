@@ -31,7 +31,7 @@
                 	<include src="../sport_content/sport_content"></include>
                 </block> -->
                 <!-- 科学内容 -->
-                <block wx:if="{{index==3}}">
+                <block wx:if="{{index==1}}">
                 	<include src="../science_content/science_content"></include>
                 </block>
                 <!-- 美术内容 -->

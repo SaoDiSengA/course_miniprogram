@@ -1,0 +1,17 @@
+<!--pages/learn_test/learn_test.wxml-->
+<!-- 下拉选择框测试页面 -->
+
+<view class='fenlei'>
+  <text>地址</text>
+  <!-- 下拉框 -->
+    <view class='select_box'>
+      <view class='select' catchtap='school_selectTaps'>
+        <text class='select_text'>{{school_data[school_index]}}</text>
+        <image class='select_img {{school_shows&&"select_img_rotate"}}' src='/icons/selected.png'></image>
+      </view>
+      <view class='option_box' style='height:{{school_shows?(school_data.length>5?300:school_data.length*60):0}}rpx;'>
+        <text class='option' style='{{school_index==school_data.length-1&&"border:0;"}}' wx:for='{{school_data}}' wx:key='this' data-index='{{index}}' catchtap='school_optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
+

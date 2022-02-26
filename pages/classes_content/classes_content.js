@@ -19,6 +19,7 @@ Page({
      */
     onLoad: function (options) {
       var course_data = app.globalData.course_data
+      console.log(course_data)
       var course_time = this.change_num_to_string(course_data['week'])
       var start_time = this.calculate_one_day_time(course_data['start_time'])
       var end_time = this.calculate_one_day_time(course_data['end_time'])

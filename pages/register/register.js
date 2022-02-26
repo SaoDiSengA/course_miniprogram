@@ -31,9 +31,9 @@ Page({
         // 选择的年级下拉列表下标
         grade_index: 0,
         // 学校的id信息
-        school_id: null,
+        school_id: 1,
         // 年级信息
-        grade: null,
+        grade: 3,
         // 学籍号
         id_number: null,
         // 真实姓名
@@ -59,7 +59,7 @@ Page({
         // 获取学校名称和id
         var that = this
         wx.request({
-          url: 'http://localhost:8080/parents/getSchoolName',
+          url: 'https://epass.sibd.org.cn:8080/parents/getSchoolName',
           method: 'POST',
           header: {
             'content-type': "application/x-www-form-urlencoded"
@@ -237,7 +237,7 @@ Page({
         if(res){
             // 发起请求
             wx.request({
-                url: 'http://localhost:8080/user/sendSms',
+                url: 'https://epass.sibd.org.cn:8080/user/sendSms',
                 method: "POST",
                 header: {
                     'content-type': "application/x-www-form-urlencoded",
@@ -311,11 +311,17 @@ Page({
                         success(res) {}
                     })
                 }else{
+                    var id_number = this.data.id_number
+                    var user_name = this.data.name
+                    var user_mobile_number = this.data.mobile_number
+                    var grade_id = this.data.grade
                     wx.request({
-                      url: 'http://localhost:8080/parents/register',
-                      method: "POST",
+                      url: 'https://epass.sibd.org.cn:8080/parents/register',
+                      method: "GET",
                       header: {
-                        'content-type': "application/x-www-form-urlencoded",
+                        'content-type': "application/x-www-form-urlencoded"
+                      },
+                      data: {
                         'school_id': this.data.school_id,
                         'grade': this.data.grade,
                         'account': this.data.id_number,
@@ -324,13 +330,22 @@ Page({
                         'varifyCode': this.data.check_number,
                         'password': this.data.password,
                         'role': 'parents',
-                        },
+                      },
                         success(res) {
                             var status = res.data.code
                             var message = res.data.message
+                            console.log(res.data.code)
                             if(status == 200){
                                 // 将用户角色传入全局变量
-                            	app.globalData.user_rank = 0
+                                app.globalData.user_rank = 0
+                                // 将用户学籍号传入全局变量
+                                app.globalData.id_number = id_number
+                                // 将用户名称传入全局变量
+                                app.globalData.user_name = user_name
+                                // 将用户年级信息传入全局变量
+                                app.globalData.grade_id = grade_id
+                                // 将用户手机号传入全局变量
+                                app.globalData.user_mobile_number = user_mobile_number
                                 wx.switchTab({
                                   url: '../index/index',
                                 })

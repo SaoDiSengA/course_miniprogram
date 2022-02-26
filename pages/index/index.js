@@ -139,14 +139,14 @@ Page({
         var school_id = app.globalData.school_id
         // 获取数据
         wx.request({
-	        url: 'http://localhost:8080/parents/homePage',
+	        url: 'https://epass.sibd.org.cn:8080/parents/homePage',
 	        method: "POST",
 	        header: {
 	            'content-type': "application/x-www-form-urlencoded",
-              	'school_id': school_id
+              'school_id': school_id
 	        },
 	        success(res) {
-	            console.log(res)
+	            console.log(res)  
 	            // 获取返回状态码
 	            var status = res.data.code
 	            // 获取返回的全部课程数据
@@ -156,9 +156,9 @@ Page({
 	            // 获取返回的体育课程数据
 	            var sport_data = res.data.data["2"]
 	            // 获取返回的科学课程数据
-	            var science_data = res.data.data["3"]
+              var science_data = res.data.data[4]
 	            // 获取返回的美术课程数据
-	            var art_data = res.data.data["4"]
+	            var art_data = res.data.data["3"]
 	            // 获取返回的主持课程数据
 	            var direct_data = res.data.data["5"]
 	            // 获取返回的舞蹈课程数据
@@ -194,8 +194,8 @@ Page({
    // 修改课程分类,将它由数字变为字符串
   change_course_type_to_string: function (data) {
     for (let i = 0; i < data.length; i++) {
-      if(data[i].type_course_id == '1'){
-        data[i].type = '机器人'
+      if(data[i].type_course_id == '4'){
+        data[i].type = '科学'
       }else if(data[i].type_course_id == '2'){
         data[i].type = '美术'
       }else if(data[i].type_course_id == '3'){
@@ -249,7 +249,7 @@ Page({
     var course_id = event.currentTarget.id
     var school_id = app.globalData.school_id
     wx.request({
-      url: 'http://localhost:8080/parents/queryCourse',
+      url: 'https://epass.sibd.org.cn:8080/parents/queryCourse',
       method: 'GET',
       data: {
       	'course_id': course_id,
@@ -259,6 +259,7 @@ Page({
         'content-type': "application/x-www-form-urlencoded"
       },
       success(res){
+        console.log(res.data.data)
         app.globalData.course_data = res.data.data
         wx.navigateTo({
       		url: '../classes_content/classes_content',

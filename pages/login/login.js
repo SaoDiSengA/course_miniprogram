@@ -85,7 +85,7 @@ Page({
                 // 向后台发送请求
                 var that = this
                 wx.request({
-                  url: 'http://localhost:8080/parents/login',
+                  url: 'https://epass.sibd.org.cn:8080/parents/login',
                   method: "POST",
                   header: {
                     'content-type': "application/x-www-form-urlencoded",
@@ -93,30 +93,7 @@ Page({
                     'password': this.data.user_password
                   },
                   success(res) {
-                    console.log(res)
-                    console.log(res.data.data.role)
-                    console.log(res.data.data.id)
                     var status = res.data.code
-                    var role = res.data.data.role
-                    if (res.data.data.role=="teacher_manage"){
-                      that.setData({
-                        teacherRole:0
-                      })
-                    }
-                    
-                    if (res.data.data.role=="teacher_teache"){
-                      that.setData({
-                        teacherRole:1
-                      })
-                    }
-                    that.setData({
-                      teacherId:res.data.data.id
-                    })
-                    console.log(that.data.teacherRole)
-                    console.log(that.data.teacherId)
-                    var name = res.data.data.name
-                    var student_id = res.data.data.id
-                    var school_id = res.data.data.school_id
                     if (status == 400) {
                       wx.showModal({
                         title: '',
@@ -134,6 +111,28 @@ Page({
                         }
                       })
                     }else if(status == 200){
+                      var role = res.data.data.role
+                      if (res.data.data.role=="teacher_manage"){
+                        that.setData({
+                          teacherRole:0
+                        })
+                      }
+                      
+                      if (res.data.data.role=="teacher_teache"){
+                        that.setData({
+                          teacherRole:1
+                        })
+                      }
+                      that.setData({
+                        teacherId:res.data.data.id
+                      })
+                      console.log(that.data.teacherRole)
+                      console.log(that.data.teacherId)
+                      var id_number = res.data.data.account
+                      var name = res.data.data.name
+                      var student_id = res.data.data.id
+                      var school_id = res.data.data.school_id
+                      var grade_id = res.data.data.grade
                       // 根据角色区分，跳转到不同的页面
                       if(role == 'parents'){
                         app.globalData.user_rank = 0
@@ -144,10 +143,14 @@ Page({
                       app.globalData.user_mobile_number = that.data.user_mobile_number
                       // 将学生的ID传入全局变量
                       app.globalData.student_id = student_id
+                      // 将学生的年级信息传入全局变量
+                      app.globalData.grade_id = grade_id
                       // 将学校的ID传入全局变量
                       app.globalData.school_id = school_id
                       // 将用户名称传入全局变量
                       app.globalData.user_name = name
+                      // 将用户学籍号传入全局变量
+                      app.globalData.id_number = id_number
                       app.globalData.teacherId = that.data.teacherId
                       app.globalData.teacherRole = that.data.teacherRole
                       wx.switchTab({

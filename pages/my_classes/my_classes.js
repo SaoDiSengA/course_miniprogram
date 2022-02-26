@@ -30,7 +30,7 @@ Page({
     onLoad: function (options) {
         var that = this
         wx.request({
-            url: 'http://localhost:8080/parents/signUp',
+            url: 'https://epass.sibd.org.cn:8080/parents/signUp',
             method: 'POST',
             header: {
                 'content-type': "application/x-www-form-urlencoded",
@@ -52,8 +52,8 @@ Page({
     // 修改课程分类,将它由数字变为字符串
     change_course_type_to_string: function (data) {
         for (let i = 0; i < data.length; i++) {
-            if(data[i].type_course_id == '1'){
-                data[i].type = '机器人'
+            if(data[i].type_course_id == '4'){
+                data[i].type = '科学'
             }else if(data[i].type_course_id == '2'){
                 data[i].type = '美术'
             }else if(data[i].type_course_id == '3'){

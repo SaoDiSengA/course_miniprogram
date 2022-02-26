@@ -28,7 +28,7 @@
                 <text style="color: #ff4302;">/期</text>
             </view>
             <view class="classes_name">
-                <text>{{ course_data.title }}~</text>    
+                <text>{{ course_data.title }}</text>    
             </view>
         </view>
     </view>

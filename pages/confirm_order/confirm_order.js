@@ -48,7 +48,7 @@ Page({
       // 获取openId
       var open_id = this.data.open_id
       wx.request({
-        url: 'http://localhost:8080/WXPay/goWeChatPay',
+        url: 'https://epass.sibd.org.cn:8080/WXPay/goWeChatPay',
         method: 'POST',
         header: {
           'content-type': "application/x-www-form-urlencoded",
@@ -61,7 +61,7 @@ Page({
           'school_id': app.globalData.school_id,
           'class_id': course_info.class_id,
           'week': course_info.week,
-          'start_time': course_data.start_time
+          'start_time': course_info.start_time
         },
         success(res){
           console.log(res.data.data)
@@ -73,7 +73,9 @@ Page({
             paySign: res.data.data.sign,
             timeStamp: res.data.data.timeStamp,
             "success":function(res){
-              console.log(res)
+              wx.navigateTo({
+                url: '../order_success/order_success',
+              })
             },
             "fail":function(res){
               console.log(res)
