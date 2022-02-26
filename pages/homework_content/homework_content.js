@@ -10,7 +10,30 @@ Page({
         'imgs':'',
         'homeworkContent':'',
         'teacherName':'',
-        hw_list:[]
+        hw_list:[],
+        preimgs:[],
+    },
+    　　//图片点击事件
+　　enlarge: function (event) {
+　　　　var src = event.currentTarget.src;//获取data-src
+        console.log(src)
+　　　　//图片预览
+        wx.previewImage({
+          urls: src,
+        })
+　　},
+    previewImg: function (e) {
+        //获取当前图片的下标
+        var index = e.currentTarget.dataset.index;
+        var src = e.currentTarget.dataset.src;
+        console.log(src)
+        var imgs = this.data.imgs;
+        wx.previewImage({
+        //当前显示图片
+        current: imgs[index],
+        //所有图片
+        urls: imgs
+        })
     },
 
     /**
@@ -33,8 +56,10 @@ Page({
             },
             success: function(res){
             console.log(res.data)
+            let a = res.data.imgs.split(",")
             that.setData({
                 hw_list:res.data,
+                imgs:a,
             })
             }
         })
