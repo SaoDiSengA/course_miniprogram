@@ -37,7 +37,7 @@ Page({
       minute = times[1]
       var time = hour + ':' + minute
       return time
-    }
+    },
 
     // 建立数字-星期的映射关系
     change_num_to_string: function(data){
@@ -63,7 +63,7 @@ Page({
       }
       var course_time = strings.join('、')
       return course_time
-    }
+    },
 
     // 点击报名按钮，跳转到支付页面
     apply_click: function () {
