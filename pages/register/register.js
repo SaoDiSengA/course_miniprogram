@@ -131,6 +131,8 @@ Page({
             school_shows: !this.data.school_shows,
             school_id: school_ids[id]
         });
+        // 将用户的学校ID传入全局变量
+        app.globalData.school_id = this.data.school_id
     },
 
     // 点击下拉显示框-年级
@@ -329,8 +331,6 @@ Page({
                             if(status == 200){
                                 // 将用户角色传入全局变量
                             	app.globalData.user_rank = 0
-                                // 将用户的学校ID传入全局变量
-                                app.globalData.school_id = this.data.school_id
                                 wx.switchTab({
                                   url: '../index/index',
                                 })
