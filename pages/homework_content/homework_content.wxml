@@ -39,7 +39,20 @@
         <!-- 作业内容 -->
         <view class="homework_context">
             <text space="emsp" style="word-break: break-all;">{{ hw_list.homeworkContent }}</text>
+            
         </view>
+        <!-- <view wx:for="{{imgs}}" wx:for-item="item" id="icon">
+                <image src="../../icons/homework/{{item}}" mode='aspectFit' bindtap="enlarge" ></image>
+        </view> -->
+        <view class="img" style="margin-top: 30rpx;">
+            <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                <image class='weui-uploader__img '
+                        src="/icons/homework/{{item}}" data-src="/icons/homework/{{item}}"
+                        data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width: 400rpx;height: 400rpx;">
+                </image>
+            </view>
+        </view>
+        
 </view>
 
 <!-- 作业详情背景样式 -->

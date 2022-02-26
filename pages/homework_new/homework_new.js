@@ -281,6 +281,7 @@ previewImg: function (e) {
   var index = e.currentTarget.dataset.index;
   //所有图片
   var imgs = this.data.imgs;
+  console.log(imgs)
   wx.previewImage({
     //当前显示图片
     current: imgs[index],
