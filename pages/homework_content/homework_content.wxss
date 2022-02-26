@@ -61,16 +61,16 @@
 }
 
 /* 作业详情页面背景 */
-.homework_content_background {
-    /* display: flex;
+/* .homework_content_background {
+    display: flex;
     flex-direction: column;
     position: relative;
     z-index: 3;
     align-items: center;
     margin-top: -400px;
     width: 100%;
-    height: 400px; */
-}
+    height: 400px;
+} */
 
 /* 作业详情页面背景图片 */
 .homework_content_background_picture {

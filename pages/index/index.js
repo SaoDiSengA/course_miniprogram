@@ -252,7 +252,7 @@ Page({
       url: 'http://localhost:8080/parents/queryCourse',
       method: 'GET',
       data: {
-      	'course_id': course_id
+      	'course_id': course_id,
         'school_id': school_id
       },
       header: {
