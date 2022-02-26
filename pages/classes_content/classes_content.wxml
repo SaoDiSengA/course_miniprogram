@@ -41,7 +41,7 @@
         <!-- 分割线 -->
         <view class="divide_info"></view>
         <view class="classes_time">
-            <text space="emsp">上课时间：{{ course_data.class_time }}</text>
+            <text space="emsp">上课时间：{{ course_data.class_time }} {{ course_data.new_start_time }}~{{ course_data.new_end_time }}</text>
         </view>
     </view>
 

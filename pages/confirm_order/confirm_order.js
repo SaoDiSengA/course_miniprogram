@@ -54,9 +54,14 @@ Page({
           'content-type': "application/x-www-form-urlencoded",
         },
         data: {
+          'course_name': course_info.title,
           'openid': open_id,
-          'detail': course_info.title,
-          'phone': mobile_number
+          'course_id': course_info.course_id,
+          'student_id': app.globalData.student_id,
+          'school_id': app.globalData.school_id,
+          'class_id': course_info.class_id,
+          'week': course_info.week,
+          'start_time': course_data.start_time
         },
         success(res){
           console.log(res.data.data)
@@ -73,9 +78,9 @@ Page({
             "fail":function(res){
               console.log(res)
             },
-			"complete":function(res){
-			  console.log(res)
-			}
+      			"complete":function(res){
+      			  console.log(res)
+      			}
           })
           
         }
