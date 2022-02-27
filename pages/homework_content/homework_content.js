@@ -12,27 +12,21 @@ Page({
         'teacherName':'',
         hw_list:[],
         preimgs:[],
+        imgs_a:[],
     },
     　　//图片点击事件
-　　enlarge: function (event) {
-　　　　var src = event.currentTarget.src;//获取data-src
-        console.log(src)
-　　　　//图片预览
-        wx.previewImage({
-          urls: src,
-        })
-　　},
+
     previewImg: function (e) {
         //获取当前图片的下标
         var index = e.currentTarget.dataset.index;
         var src = e.currentTarget.dataset.src;
         console.log(src)
-        var imgs = this.data.imgs;
+        var imgs_a = this.data.imgs_a;
         wx.previewImage({
         //当前显示图片
-        current: imgs[index],
-        //所有图片
-        urls: imgs
+        current: imgs_a[index],
+        //所有图片18800008821
+        urls: imgs_a
         })
     },
 
@@ -56,10 +50,18 @@ Page({
             },
             success: function(res){
             console.log(res.data)
-            let a = res.data.imgs.split(",")
+            // let a = res.data.imgs.split(",")
+            for (let index = 0; index < res.data.imgs.length; index++) {
+                // that.data.imgs.concat('http://localhost:8080'+res.data.imgs[index])
+                that.setData({
+                    imgs_a:that.data.imgs_a.concat('http://localhost:8080'+res.data.imgs[index])
+                })
+                console.log(that.data.imgs_a)
+            }
             that.setData({
                 hw_list:res.data,
-                imgs:a,
+                // imgs:a,
+                imgs:res.data.imgs
             })
             }
         })

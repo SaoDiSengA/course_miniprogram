@@ -47,7 +47,7 @@
         <view class="img" style="margin-top: 30rpx;">
             <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
                 <image class='weui-uploader__img '
-                        src="/icons/homework/{{item}}" data-src="/icons/homework/{{item}}"
+                        src="http://localhost:8080/{{item}}" data-src="http://localhost:8080{{item}}"
                         data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width: 400rpx;height: 400rpx;">
                 </image>
             </view>
