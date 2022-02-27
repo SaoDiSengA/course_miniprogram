@@ -10,7 +10,7 @@
 </view>
 <view class="content">
     <view >详细信息：</view>
-    <view class="content_txt"><textarea bindinput="hw_content"></textarea></view>
+    <view class="content_txt"><textarea bindinput="hw_content" style="word-break: break-all;"></textarea></view>
 </view>
 <view class="load_img" style="border: 1rpx solid rgb(207, 206, 206);margin: 15rpx;">
     <view style="margin: 15rpx;">上传图片（最多6张）</view>

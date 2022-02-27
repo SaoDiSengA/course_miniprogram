@@ -93,9 +93,10 @@
 
 
 .img{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 }
 .pic{
     margin-top: 10rpx;
 }
+

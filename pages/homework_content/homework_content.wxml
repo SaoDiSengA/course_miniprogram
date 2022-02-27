@@ -39,19 +39,24 @@
         <!-- 作业内容 -->
         <view class="homework_context">
             <text space="emsp" style="word-break: break-all;">{{ hw_list.homeworkContent }}</text>
-            
         </view>
-        <!-- <view wx:for="{{imgs}}" wx:for-item="item" id="icon">
-                <image src="../../icons/homework/{{item}}" mode='aspectFit' bindtap="enlarge" ></image>
-        </view> -->
-        <view class="img" style="margin-top: 30rpx;">
-            <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <view class="img" style="margin-top: 30rpx;width: 500rpx;">
+            <!-- <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
                 <image class='weui-uploader__img '
                         src="http://localhost:8080/{{item}}" data-src="http://localhost:8080{{item}}"
                         data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width: 400rpx;height: 400rpx;">
                 </image>
-            </view>
+            </view> -->
+            <swiper style="width: 100%;" indicator-dots="true">
+                <swiper-item wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                    <image class='weui-uploader__img '
+                        src="http://localhost:8080/{{item}}" data-src="http://localhost:8080{{item}}"
+                        data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width: 100%;">
+                    </image>
+                </swiper-item>
+             </swiper>
         </view>
+
         
 </view>
 
