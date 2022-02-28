@@ -29,6 +29,13 @@ Page({
         wx.navigateTo({
           url: '../own_info/own_info',
         })
+    },
+
+    // 用户退出账号
+    exit_click: function () {
+        wx.redirectTo({
+          url: '../login/login',
+        })
     }
 
 })

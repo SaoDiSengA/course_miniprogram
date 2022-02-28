@@ -1,4 +1,10 @@
 // pages/course_info/course_info.js
+
+// 获取APP的全局变量值
+var app = getApp()
+console.log(app.globalData)
+var util = require('../../utils/util.js')
+
 Page({
 
     /**
@@ -36,7 +42,33 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this
+        var course_data = app.globalData.course_data
+        var school_id = app.globalData.school_id
+        var course_id = course_data.id
+        var start_time = course_data.start_time
+        var week = course_data.week
+        that.setData({
+            course_title: course_data.title
+        })
+        wx.request({
+            url: 'https://epass.sibd.org.cn:8080/parents/ViewTeache',
+            method: "POST",
+            header: {
+                'content-type': "application/x-www-form-urlencoded",
+                'school_id': school_id,
+                'course_id': course_id,
+                'start_time': start_time,
+                'week': week
+            },
+            success(res) {
+                var course_teachers = res.data.data
+                var new_course_teachers = that.handle_course_teachers_info(course_teachers)
+                that.setData({
+                    course_teahcers: new_course_teachers
+                })
+            }
+        })
     },
 
     // 点击“班级老师”按钮
@@ -47,6 +79,19 @@ Page({
           selected_teacher: 1,
           selected_homework: 0
       })  
+    },
+    
+    // 对老师信息进行更改
+    handle_course_teachers_info: function (data) {
+      var course_teachers = []
+      for(var key in data){
+          var teacher_name = data[key]
+          var teacher = {}
+          teacher['role'] = key
+          teacher['name'] = teacher_name
+          course_teachers.push(teacher)
+      }
+      return course_teachers
     },
 
     // 点击“班级作业”按钮

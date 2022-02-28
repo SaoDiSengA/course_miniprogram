@@ -109,7 +109,7 @@
     flex-direction: row;
     position: relative;
     margin-top: 370px;
-    margin-left: 70px;
+    margin-left: 10px;
 }
 
 /* 注册按钮样式 */

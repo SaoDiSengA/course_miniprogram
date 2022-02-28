@@ -103,7 +103,7 @@
         </label>
         <view bindtap="user_aggrement_content">
             <text>我已阅读并同意</text>
-            <text style="color: #639cf3;">《XXX用户协议》</text>
+            <text style="color: #639cf3;">《校园双减服务平台用户注册协议》</text>
         </view>
     </view>
 
