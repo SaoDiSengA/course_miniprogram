@@ -86,6 +86,7 @@ Page({
                   postTime:that.data.postTime,
                   content:that.data.content,
                   imgs:that.data.imgs_uuid,
+                  schoolId:that.data.schoolId
                 },
                 header: {
                   'content-type': 'application/json' // 默认值
